@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from academize.views import update_semester
+from academize.views import update_semester, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', update_semester, name='view1'),
+    path('add_edit/', update_semester, name='add_eidt'),
+    path('', home, name='home'),
 ]

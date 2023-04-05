@@ -1,44 +1,59 @@
 from django.shortcuts import render, HttpResponse
 from .models import Semester, Mark, Subject, Students
 
+def home(request):
+    return render(request, 'base.html')
 
 
 def update_semester(request):
-    semester = Semester.objects.all()
-    student= Students.objects.all()
-    marks= Mark.objects.all()
-    mark = Mark.objects.first()
-    semester_num = mark.semester_num
-    try:
-        if request.method == 'POST':
-            semNum = request.POST['semester_num']
-            semcgpa = request.POST['cgpa']
-            markV = request.POST['marks']
-            s_id = request.POST['subject_id']
-            s_id = 8
-            semNum = 2
+    if request.user.username =='shrisharanyan':
+        student_userName = "student1"
+        semester = Semester.objects.all()
+        student = Students.objects.get(username=student_userName)
+        marks = Mark.objects.all()
+        
+        try:
+            if request.method == 'POST':
+                semNum = request.POST['semester_num']
+                semcgpa = request.POST['cgpa']
+                markV = request.POST['marks']
+                s_id = request.POST['subject_id']
+                s_id = 1
+                semNum = 1
+
+                mark, created = Mark.objects.get_or_create(
+                    student_name=student,
+                    subject_id=s_id,
+                    semester_id=5,
+                    semester_num=semNum,
+                    defaults={'marks': markV},
+                )
+
+                if not created:
+                    mark.marks = markV
+                    mark.save()
+                    print("Updated Marks")
+                else:
+                    print("Added Marks")
+                
+                semester, created = Semester.objects.get_or_create(
+                student=student,
+                semester_num=semNum,
+                defaults={'cgpa': semcgpa},
+                )
+
+                if not created:
+                    semester.cgpa = semcgpa
+                    semester.save(update_fields=['cgpa'])
+                    print("Updated CGPA")
+                else:
+                    print("Added CGPA")
+                    
+                return render(request, 'success.html')
             
-            for std in student:
-                if std.username == request.user.username:
-                    a = std.id
-                    for mark in marks:
-                        if a == mark.student_name_id and s_id == mark.subject_id and semester == semester_num: 
-                            mark.marks = markV
-                            mark.save()
-                            print("Added Marks")
-                    for cgp in semester:
-                        if a == cgp.student_id and semNum == cgp.semester_num:
-                            cgp.cgpa=semcgpa
-                            cgp.save(update_fields=['cgpa'])
-                            print()
-                            print()
-                            print("Added CGPA")
-                            print()
-                            print()
-
-
-            return render(request, 'success.html')  # render a success page if the update was successful
-        return render(request, 'update_semester.html', {'semester' : semester, 'marks' : marks, 'student' : student})
-    
-    except ValueError:
-        return HttpResponse("Enter all the values!")
+            return render(request, 'update_semester.html', {'semester': semester, 'marks': marks, 'student': student})
+        
+        except ValueError:
+            return HttpResponse("Enter all the values!")
+    else:
+        return HttpResponse("Authorization Failed")

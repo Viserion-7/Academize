@@ -23,18 +23,15 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.subject
-
+    
 
 class Mark(models.Model):
 
     student_name = models.ForeignKey(Students, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
+    semester_num = models.IntegerField(default=0)
     marks = models.FloatField(default=0)
-
-    @property
-    def semester_num(self):
-        return self.semester.semester_num
     
     def __str__(self):
-        return f"{self.subject} - {self.semester}: {self.marks}"
+        return f"{self.subject} - {self.semester_num}: {self.marks}"
