@@ -56,4 +56,4 @@ def update_semester(request):
         except ValueError:
             return HttpResponse("Enter all the values!")
     else:
-        return HttpResponse("Authorization Failed")
+        return HttpResponse("Authentcation Failed")
