@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+.app {
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 69%, rgba(107,108,108,1) 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.heading1 {
+  color:rgb(0, 0, 0);
+  font-family: monospace;
+  font-style: courier;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.links {
+  padding: 10px;
   color: white;
+  font-family: monospace;
+  font: courier;
 }
 
-.App-link {
-  color: #61dafb;
+.links:hover {  
+  color: rgb(255, 255, 255);
+  transition: 0.1s;
+  font-size: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 59%, rgba(161,162,162,1) 87%, rgba(201,201,201,1) 100%);
+  margin: 0;
+  padding: 0;
+}
+
+.image {
+  padding:10px;
+  border-radius: 300px;
+  width: 75px;
+  cursor: pointer;
+}
+
+.profileIcon {
+  /* position: absolute; */
+  font-size: 30px;
+  padding: 10px;
 }
