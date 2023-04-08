@@ -3,10 +3,11 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
   
 export const Nav = styled.nav`
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 59%, rgba(107,108,108,1) 77%, rgba(69,69,69,1) 100%);  height: 85px;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 54%, rgba(112,112,112,1) 72%, rgba(0,0,0,1) 100%);
+  height: 85px;
   display: flex;
-  justify-content: none;
-  // padding: 0.2rem calc((100vw - 1000px) / 2);
+  justify-content: space-between;
+  padding: 0.2rem calc((100vw - 1000px) / 2);
   z-index: 12;
   /* Third Nav */
   /* justify-content: flex-start; */
@@ -71,7 +72,7 @@ export const NavBtnLink = styled(Link)`
   padding: 10px 22px;
   color: #000000;
   outline: none;
-  border: none;l
+  border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;

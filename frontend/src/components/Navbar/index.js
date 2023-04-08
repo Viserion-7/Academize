@@ -28,13 +28,6 @@ const Navbar = () => {
               </h1>
             </div>
           </NavLink>
-          {/* <NavLink to='/about' activeStyle>
-            <div class="links">
-              <h1>
-                About
-              </h1>
-            </div>
-          </NavLink> */}
           <NavLink to='/dashboard' activeStyle>
             <div class="links">
               <h1>
