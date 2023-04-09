@@ -18,7 +18,7 @@
 .links:hover {  
   color: rgb(255, 255, 255);
   transition: 0.1s;
-  font-size: 15px;
+  text-decoration: underline;
 }
 
 body {
@@ -36,6 +36,17 @@ body {
 
 .profileIcon {
   /* position: absolute; */
+  float: left;
   font-size: 30px;
   padding: 10px;
 }
+.profileIcon:hover {
+  /* position: absolute; */
+  font-size: 32px;
+  padding: 10px;
+}
+
+.navbar {
+  box-shadow: 1px 50px lightblue;
+}
+

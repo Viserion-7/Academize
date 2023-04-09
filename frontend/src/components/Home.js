@@ -10,7 +10,9 @@ const Home = () => {
         height: '100vh'
       }}
     >
-      <h1 class="heading1" style={{color: 'white'}}>Home Page</h1>
+      <h1 class="heading1" style={{color: 'white'}}>
+        Home Page
+      </h1>
     </div>
   );
 };
