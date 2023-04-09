@@ -10,6 +10,7 @@ function Dashboard() {
       const response = await fetch(`http://localhost:8000/api/search/?q=${searchTerm}`);
       const data = await response.json();
       setSearchResults(data);
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
