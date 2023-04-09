@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from academize import views
-from academize.views import update_semester, home
+from academize.views import update_semester, home, search
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -30,5 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('add_edit/', update_semester, name='add_eidt'),
     path('', home, name='home'),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/search/', search, name='search')
 ]

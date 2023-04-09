@@ -2,6 +2,9 @@ from django.shortcuts import render, HttpResponse
 from .models import Semester, Mark, Subject, Students
 from .serializers import StudentsSerializer, SubjectSerializer, SemesterSerializer, MarkSerializer
 from rest_framework import viewsets
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Students
 
 class StudentsView(viewsets.ModelViewSet):
     queryset = Students.objects.all()
@@ -18,6 +21,26 @@ class SemesterView(viewsets.ModelViewSet):
 class MarksView(viewsets.ModelViewSet):
     queryset = Mark.objects.all()
     serializer_class = MarkSerializer
+
+
+
+@csrf_exempt
+def search(request):
+    if request.method == 'GET':
+        query = request.GET.get('q', '')
+        students = Students.objects.filter(roll_num=query)
+        data = [{
+            'id': student.id,
+            'name':student.name,
+            'roll_num':student.roll_num,
+            'username':student.username
+        } for student in students]
+        print()
+        print(data)
+        print()
+        return JsonResponse(data, safe=False)
+    else:
+        return HttpResponse('Bad Request')
 
 
 def home(request):
