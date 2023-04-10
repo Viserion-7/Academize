@@ -99,7 +99,7 @@ function StudentDetails() {
           placeholder="Roll Number"
           value={rollNum}
           onChange={(e) => setRollNum(e.target.value)}
-          style={{borderRadius:'10px', height:'40px'}}
+          style={{borderRadius:'10px', height:'40px', background:'lightGrey', paddingLeft:'5px'}}
         />
         <br />
         <input
@@ -107,11 +107,11 @@ function StudentDetails() {
           placeholder="Semester Number"
           value={semesterNum}
           onChange={(e) => setSemesterNum(e.target.value)}
-          style={{borderRadius:'10px', height:'40px'}}
+          style={{borderRadius:'10px', height:'40px', background:'lightGrey', paddingLeft:'5px'}}
         />
         <br />
         <br />
-        <button style={{marginLeft:'55px', background:'lightGrey', borderRadius:'10px', fontSize:'15px'}} type="submit">Search</button>
+        <button style={{marginLeft:'55px', background:'lightGrey', borderRadius:'10px', fontSize:'12px', padding:'3px'}} type="submit">Search</button>
         {showError && (
           <p style={{ color: "red" }}>Please enter a search term</p>
         )}
