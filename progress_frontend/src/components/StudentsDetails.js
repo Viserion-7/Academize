@@ -67,6 +67,7 @@ function StudentDetails() {
   const [semesterNum, setSemesterNum] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showError, setShowError] = useState(false);
+  const [matchError, setMatchError] = useState(false);
   // const [showAddStudent, setShowAddStudent] = useState(false);
 
   const handleStudentSearch = async (e) => {
@@ -81,14 +82,18 @@ function StudentDetails() {
       setSearchResults(data);
       setShowError(false);
       console.log(data);
+      data.length === 0 ? setMatchError(true) : setMatchError(false);
     } catch (error) {
       console.error(error);
     }
+
   };
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '100vh', fontSize:'14px'}}>
       <h1 style={{color:'white'}}>Student Details</h1>
-      <form style={{display:'flex'}} onSubmit={handleStudentSearch}>
+      <br />
+      <br />
+      <form style={{flex:'column'}} onSubmit={handleStudentSearch}>
         <input
           type="text"
           placeholder="Roll Number"
@@ -105,19 +110,25 @@ function StudentDetails() {
           style={{borderRadius:'10px', height:'40px'}}
         />
         <br />
-        <button style={{ margin:'auto' }} type="submit">Search</button>
+        <br />
+        <button style={{marginLeft:'55px', background:'lightGrey', borderRadius:'10px', fontSize:'15px'}} type="submit">Search</button>
         {showError && (
           <p style={{ color: "red" }}>Please enter a search term</p>
         )}
+        {matchError && (
+          <p style={{ color: "red", marginLeft:'30px'}}>No results found!</p>
+        )}
+
+
       </form>
       {searchResults.map((result) => (
         <div key={result.id} style={{color:'white'}}>
           <br />
           <br />
           <h2>{result.student__name}</h2>
-          <p>Roll Number: {result.student__roll_num}</p>
-          <p>Phone: {result.student__phone_number}</p>
-          <p>CGPA: {result.cgpa}</p>
+          <p>Roll Number: <span style={{marginLeft:'5px'}}>{result.student__roll_num}</span></p>
+          <p>Phone: <span style={{marginLeft:'5px'}}>{result.student__phone_number}</span></p>
+          <p>CGPA: <span style={{marginLeft:'5px'}}>{result.cgpa}</span></p>
         </div>
       ))}
     </div>
