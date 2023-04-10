@@ -1,7 +1,7 @@
 import React  from "react";
 import { FaYoutubeSquare } from "react-icons/fa";
 import "./navbar.css";
-import { GiHamburgerMenu } from "react-icons/gi";
+// import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div className= {showMediaIcons ? "menu-link mobile-menu-link" : "menu-link" }>
                     <ul>
                         <li>
-                            <Link to="/dashboard" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Dashboard</Link>
+                            <Link to="/student" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Student Details</Link>
                         </li>
                         <li>
                             <Link to="/profile" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Profile</Link>

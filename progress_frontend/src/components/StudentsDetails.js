@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Dashboard() {
+function StudentDetails() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showError, setShowError] = useState(false);
@@ -48,4 +48,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default StudentDetails;
