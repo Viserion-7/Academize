@@ -8,9 +8,9 @@ const Home = () => {
         justifyContent: 'Center',
         alignItems: 'Right',
         height: '100vh'
-        }}
+        }} 
     >
-        <h1 style={{color: 'white'}}>
+        <h1 style={{color:'white', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', fontSize:'40px'}}>
         Home
         </h1>
     </div>

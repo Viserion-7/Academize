@@ -22,26 +22,68 @@ class MarksView(viewsets.ModelViewSet):
     queryset = Mark.objects.all()
     serializer_class = MarkSerializer
 
+# @csrf_exempt
+# def search(request):
+#     if request.method == 'GET':
+#         query = request.GET.get('roll_num', '')
+#         semesters = Semester.objects.filter(student__roll_num=query).values(
+#             'id',
+#             'semester_num',
+#             'cgpa',
+#             'student__id',
+#             'student__name',
+#             'student__roll_num',
+#             'student__username',
+#             'student__phone_number'
+#         )
+#         data = list(semesters)
+#         return JsonResponse(data, safe=False)
+#     else:
+#         return HttpResponse('Bad Request')
 
 
 @csrf_exempt
 def search(request):
     if request.method == 'GET':
-        query = request.GET.get('q', '')
-        students = Students.objects.filter(roll_num=query)
-        data = [{
-            'id': student.id,
-            'name':student.name,
-            'roll_num':student.roll_num,
-            'username':student.username,
-            'phone_number':student.phone_number,
-        } for student in students]
+        roll_num = request.GET.get('rollNum', '')
+        semester_num = request.GET.get('semesterNum', '')
+        semesters = Semester.objects.filter(student__roll_num=roll_num, semester_num=semester_num).values(
+            'id',
+            'semester_num',
+            'cgpa',
+            'student__id',
+            'student__name',
+            'student__roll_num',
+            'student__username',
+            'student__phone_number'
+        )
+
+        data = list(semesters)
         print()
         print(data)
         print()
         return JsonResponse(data, safe=False)
     else:
         return HttpResponse('Bad Request')
+
+# @csrf_exempt
+# def search(request):
+#     if request.method == 'GET':
+#         query = request.GET.get('q', '')
+#         students = Students.objects.filter(roll_num=query)
+#         data = [{
+#             'id': student.id,
+#             'name':student.name,
+#             'roll_num':student.roll_num,
+#             'username':student.username,
+#             'phone_number':student.phone_number,
+#         } for student in students]
+#         print()
+#         print(data)
+#         print()
+#         return JsonResponse(data, safe=False)
+#     else:
+#         return HttpResponse('Bad Request')
 
 
 def home(request):
