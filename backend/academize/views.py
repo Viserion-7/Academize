@@ -33,7 +33,8 @@ def search(request):
             'id': student.id,
             'name':student.name,
             'roll_num':student.roll_num,
-            'username':student.username
+            'username':student.username,
+            'phone_number':student.phone_number,
         } for student in students]
         print()
         print(data)

@@ -5,6 +5,7 @@ class Students(models.Model):
     name = models.CharField(max_length=150)
     roll_num = models.CharField(max_length=150)
     username = models.CharField(max_length=150)
+    phone_number = models.CharField(max_length=20)
     def __str__(self):
         return f"{self.name} - {self.roll_num}"
 
