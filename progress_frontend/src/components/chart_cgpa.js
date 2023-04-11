@@ -6,7 +6,7 @@ class DynamicChart extends React.Component {
     const { data } = this.props;
     
     const chartData = [
-      ["CGPA", "Score"],
+      ["CGPA", "SGPA"],
       ...data.map(({ name, value }) => [name, value])
     ];
 

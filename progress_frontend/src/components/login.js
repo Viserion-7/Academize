@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {useState} from "react";
 import '../App.css';
 
@@ -64,9 +64,13 @@ import '../App.css';
             <br />
             <div className="d-grid gap-2 mt-3">
               <button style={{borderRadius:'10px', fontSize:'15px', padding:'5px', backgroundColor:'lightGrey'}} type="submit" className="btn btn-primary">
-                Submit
+                Login
               </button>
             </div>
+            
+            <Link to='/register' style={{color:'lightblue',fontSize:'15px', textDecoration:'underline'}}>
+            Register
+            </Link>
           </div>
         </form>
     </div>
