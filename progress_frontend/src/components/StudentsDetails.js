@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { useEffect } from "react";
+import axios from "axios";
 
 // function StudentForm() {
 //   const [name, setName] = useState("");
@@ -63,6 +64,27 @@ import React, { useState } from "react";
 
 
 function StudentDetails() {
+  useEffect(() => {
+    if(localStorage.getItem('access_token') === null){
+      window.location.href= '/'
+    }
+    else{
+      (async () => {
+        try{
+          const {data} = await axios.get('http://localhost:8000/logout/', {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          }
+          );
+          console.log(data)
+
+          }catch(e) {
+            console.log(e)
+          }
+        })()};
+      }, []);
+
   const [rollNum, setRollNum] = useState("");
   const [semesterNum, setSemesterNum] = useState("");
   const [searchResults, setSearchResults] = useState([]);

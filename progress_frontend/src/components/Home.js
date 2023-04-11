@@ -1,6 +1,16 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 const Home = () => {
+  useEffect(() => {
+    if(localStorage.getItem('access_token') === null){
+      window.location.href= '/'
+    }
+    else{
+      console.log('Home Page')
+    };
+      }, []);
+
   return (
     <div
         style={{

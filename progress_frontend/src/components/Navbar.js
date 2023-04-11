@@ -20,8 +20,8 @@ const Navbar = () => {
         <>
             <nav className="main-nav">
                 <div>
-                    <Link to="/">
-                        <img src={logo} class="logo"/>
+                    <Link to="/home">
+                        <img src={logo} className="logo"/>
                     </Link>
                 </div>
                 <div className= {showMediaIcons ? "menu-link mobile-menu-link" : "menu-link" }>
@@ -34,7 +34,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             {isAuth ?
-                            <Link to="/logout" style={{color:"white"}} >Logout</Link>:
+                            <Link to="/" style={{color:"white"}} >Logout</Link>:
                             <Link to="/login" style={{color:"white"}} >Login</Link>
                              }
                         </li>
