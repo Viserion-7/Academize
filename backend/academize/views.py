@@ -53,8 +53,8 @@ class LogoutView(APIView):
 def search(request):
     if request.method == 'GET':
         roll_num = request.GET.get('rollNum', '')
-        semester_num = request.GET.get('semesterNum', '')
-        semesters = Semester.objects.filter(student__roll_num=roll_num, semester_num=semester_num).values(
+        semester_nums = request.GET.get('semesterNum', '').split(',')
+        semesters = Semester.objects.filter(student__roll_num=roll_num, semester_num__in=semester_nums).values(
             'id',
             'semester_num',
             'cgpa',
