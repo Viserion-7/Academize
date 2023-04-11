@@ -11,15 +11,15 @@ class DynamicChart extends React.Component {
     ];
 
     return (
-      <div style={{maxWidth:'900px', width:'100%', display: "flex", justifyContent: "center", padding:'5%'}}>
+      <div style={{maxWidth:'900px', width:'100%', display: "flex", justifyContent: "center", padding:'3%'}}>
         <Chart
           width={'100%'}
           height={"300px"}
           chartType="LineChart"
-          loader={<div>Loading Chart</div>}
+          loader={<div style={{color:'white'}}>Loading Chart</div>}
           data={chartData}
           options={{
-            title: "CGPA Chart",
+            title: "SGPA Chart",
           }}
           rootProps={{ "data-testid": "1" }}
         />

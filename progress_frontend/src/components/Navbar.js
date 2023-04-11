@@ -18,11 +18,14 @@ const Navbar = () => {
     
     return (
         <>
-            <nav className="main-nav">
+            <nav className="main-nav" style={{height:'90px'}}>
                 <div>
                     <Link to="/home">
-                        <img src={logo} className="logo"/>
+                        <img style={{marginTop:'7px'}} src={logo} alt="ACADEMIZE" className="logo"/>
                     </Link>
+                    <span>
+                        Hello
+                    </span>
                 </div>
                 <div className= {showMediaIcons ? "menu-link mobile-menu-link" : "menu-link" }>
                     <ul>
@@ -41,12 +44,6 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="social-media">
-                    <ul className="social-media-desktop">
-                        <li>
-                            <a href="https://www.youtube.com/@amFOSS" target="_amfoss" className="youtube"><FaYoutubeSquare/></a>
-                        </li>
-                    </ul>
-
                     <div className="hamburger-menu">
                         <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
                             <FaBars style={{color:'white'}}/>
@@ -54,9 +51,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-            {/* <section >
-                <Dashboard />
-            </section> */}
         </>
     );
 };

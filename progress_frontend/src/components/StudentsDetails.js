@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import DynamicChart from "./chart_cgpa";
+import '../App.css';
 
 function StudentDetails() {
   useEffect(() => {
@@ -76,7 +77,7 @@ function StudentDetails() {
         />
         <br />
         <br />
-        <button style={{marginLeft:'10px', background:'lightGrey', borderRadius:'10px', fontSize:'12px', padding:'3px', borderColor:'darkgrey'}} type="submit">Search</button>
+        <button class="buttons" style={{marginLeft:'10px', background:'lightGrey', borderRadius:'7px', fontSize:'12px', padding:'3px', borderColor:'lightgray'}} type="submit">Search</button>
         {showError && (
           <p style={{ color: "red" }}>Please enter a search term</p>
         )}
@@ -87,22 +88,28 @@ function StudentDetails() {
 
       </form>
       </div>
-      <div style={{margin:'25px', padding:'30px', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 69%, rgba(107,108,108,1) 100%)', borderRadius:'10px'}}>
       {searchResults.length > 0 &&
-      <div style={{color:'white', padding:'1%'}}>
-        <p style={{fontSize:'32px', fontWeight:'750', textAlign:'start'}}>{searchResults[0].student__name}</p>
-        <p style={{fontSize:'20px', fontWeight:'500', textAlign:'start'}}>Roll Number: {searchResults[0].student__roll_num}</p>
-        <p style={{fontSize:'20px', fontWeight:'500', textAlign:'start'}}>Phone: {searchResults[0].student__phone_number}</p>
-        <br />
+        <div style={{margin:'25px', padding:'30px', borderRadius:'10px', background:'grey'}}>
+        {searchResults.length > 0 &&
+        <div style={{color:'white', padding:'1%'}}>
+          <p style={{fontSize:'25px', fontWeight:'750', textAlign:'start'}}>{searchResults[0].student__name}</p>
+          <br />
+          <p style={{fontSize:'15px', fontWeight:'500', textAlign:'start'}}>Roll Number: {searchResults[0].student__roll_num}</p>
+          <br />
+          <p style={{fontSize:'15px', fontWeight:'500', textAlign:'start'}}>Phone: {searchResults[0].student__phone_number}</p>
+          <br />
+        </div>
+        }
+        {searchResults.map((item, index) => (
+        <div key={index} style={{color:'white'}}>
+          <p style={{fontSize:'18px', fontWeight:'400', textAlign:'start'}}>SGPA-{item.semester_num}: {item.cgpa}</p>
+        </div>
+      ))}
       </div>
-      }
-      {searchResults.map((item, index) => (
-      <div key={index} style={{color:'white'}}>
-        <p style={{fontSize:'18px', fontWeight:'400', textAlign:'start'}}>SGPA{item.semester_num}: {item.cgpa}</p>
-      </div>
-    ))}
-    </div>
-    <DynamicChart data={searchResults.map(item => ({ name: `SGPA${item.semester_num}`, value: item.cgpa }))} />
+    } 
+    {searchResults.length > 0 &&
+    <DynamicChart data={searchResults.map(item => ({ name: `SGPA-${item.semester_num}`, value: item.cgpa }))} />
+    }
     </div>
 
   );
