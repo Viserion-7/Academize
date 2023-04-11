@@ -39,8 +39,7 @@
 
 
 .App {
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 69%, rgba(107,108,108,1) 100%);
-}
+  background: linear-gradient(90deg, rgba(28,0,10,1) 0%, rgba(63,0,255,1) 16%, rgba(54,4,88,1) 88%, rgba(0,0,0,1) 100%);}
 
 .Auth-form-container {
   display: flex;
@@ -57,7 +56,7 @@
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 30px;
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 69%, rgba(107,108,108,1) 100%);
+  background: linear-gradient(90deg, rgba(57,0,56,1) 0%, rgba(26,0,85,1) 100%);
   font-size: 20px;
 }
 
@@ -88,4 +87,8 @@ label {
 .buttons:hover{
   border-color: black;
   font-size:20px;
+}
+
+html {
+  background: linear-gradient(90deg, rgba(28,0,10,1) 0%, rgba(63,0,255,1) 16%, rgba(54,4,88,1) 88%, rgba(0,0,0,1) 100%);
 }

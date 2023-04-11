@@ -63,7 +63,7 @@ import '../App.css';
             </div>
             <br />
             <div className="d-grid gap-2 mt-3">
-              <button style={{borderRadius:'10px', fontSize:'15px', padding:'5px', backgroundColor:'lightGrey'}} type="submit" className="btn btn-primary">
+              <button style={{cursor:'pointer', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(26,0,85,1) 100%)', borderRadius:'7px', fontSize:'15px', padding:'7px', borderColor:'#23006b', color:'white'}} type="submit" className="btn btn-primary">
                 Login
               </button>
             </div>

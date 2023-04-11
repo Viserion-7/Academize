@@ -11,17 +11,29 @@ class DynamicChart extends React.Component {
     ];
 
     return (
-      <div style={{maxWidth:'900px', width:'100%', display: "flex", justifyContent: "center", padding:'3%'}}>
+      <div style={{background: '#22026b' ,maxWidth:'750px', width:'100%', display: "flex", justifyContent: "center", padding:'3px'}}>
         <Chart
           width={'100%'}
-          height={"300px"}
+          height={"500px"}
           chartType="LineChart"
           loader={<div style={{color:'white'}}>Loading Chart</div>}
           data={chartData}
           options={{
             title: "SGPA Chart",
+            backgroundColor: '#4544a8',
+            legendTextStyle: { color: '#FFF' },
+            titleTextStyle: { color: '#FFF' },
+            colors:['white'],
+            hAxis: {
+              textStyle:{color: '#FFF'},
+            },
+            vAxis: {
+              textStyle:{color: '#FFF'},
+            }
           }}
           rootProps={{ "data-testid": "1" }}
+          
+          
         />
       </div>
     );
