@@ -18,6 +18,7 @@ from django.urls import path, include
 from academize import views
 from academize.views import update_semester, home, search
 from rest_framework import routers
+from rest_framework_simplejwt import views as jwt_views
 
 router = routers.DefaultRouter()
 router.register(r'semester',views.SemesterView, 'semester')
@@ -29,7 +30,10 @@ router.register(r'subjects', views.SubjectView, 'subjects')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('add_edit/', update_semester, name='add_eidt'),
-    path('', home, name='home'),
+    path('',home, name='home'),
+    path('', include('academize.urls')),
+    path('token/', jwt_views.TokenObtainPairView.as_view(), name ='token_obtain_pair'),
+    path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name ='token_refresh'),
     path('api/', include(router.urls)),
     path('api/search/', search, name='search')
 ]

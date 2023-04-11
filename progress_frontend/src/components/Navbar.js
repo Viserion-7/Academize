@@ -3,12 +3,19 @@ import { FaYoutubeSquare } from "react-icons/fa";
 import "./navbar.css";
 // import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBars } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import logo from "./assets/logo.png";
 
 const Navbar = () => {
     const [showMediaIcons, setShowMediaIcons] = useState(false);
+    const [isAuth, setIsAuth] = useState(false);
+    useEffect(() => {
+        if (localStorage.getItem('access_token') !== null) {
+          setIsAuth(true);
+        }
+      }, [isAuth]);
+    
     return (
         <>
             <nav className="main-nav">
@@ -24,6 +31,12 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link to="/profile" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Profile</Link>
+                        </li>
+                        <li>
+                            {isAuth ?
+                            <Link to="/logout" style={{color:"white"}} >Logout</Link>:
+                            <Link to="/login" style={{color:"white"}} >Login</Link>
+                             }
                         </li>
                     </ul>
                 </div>

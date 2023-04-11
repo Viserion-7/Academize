@@ -5,6 +5,11 @@ from rest_framework import viewsets
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Students
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework import status
 
 class StudentsView(viewsets.ModelViewSet):
     queryset = Students.objects.all()
@@ -22,26 +27,27 @@ class MarksView(viewsets.ModelViewSet):
     queryset = Mark.objects.all()
     serializer_class = MarkSerializer
 
-# @csrf_exempt
-# def search(request):
-#     if request.method == 'GET':
-#         query = request.GET.get('roll_num', '')
-#         semesters = Semester.objects.filter(student__roll_num=query).values(
-#             'id',
-#             'semester_num',
-#             'cgpa',
-#             'student__id',
-#             'student__name',
-#             'student__roll_num',
-#             'student__username',
-#             'student__phone_number'
-#         )
-#         data = list(semesters)
-#         return JsonResponse(data, safe=False)
-#     else:
-#         return HttpResponse('Bad Request')
+# class HomeView(APIView):
+#     permission_classes = (IsAuthenticated, )
+  
+#     def get(self, request):
+#         content = {'message': 'Welcome to the JWT Authentification page using React Js and Django!'}
+#         return Response(content)
 
 
+
+class LogoutView(APIView):
+    permission_classes = (IsAuthenticated,)
+    def post(self, request):
+        try:
+            refresh_token = request.data["refresh_token"]
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+
+            return Response(status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        
 @csrf_exempt
 def search(request):
     if request.method == 'GET':
@@ -65,26 +71,6 @@ def search(request):
         return JsonResponse(data, safe=False)
     else:
         return HttpResponse('Bad Request')
-
-# @csrf_exempt
-# def search(request):
-#     if request.method == 'GET':
-#         query = request.GET.get('q', '')
-#         students = Students.objects.filter(roll_num=query)
-#         data = [{
-#             'id': student.id,
-#             'name':student.name,
-#             'roll_num':student.roll_num,
-#             'username':student.username,
-#             'phone_number':student.phone_number,
-#         } for student in students]
-#         print()
-#         print(data)
-#         print()
-#         return JsonResponse(data, safe=False)
-#     else:
-#         return HttpResponse('Bad Request')
-
 
 def home(request):
     return render(request, 'base.html')
