@@ -112,6 +112,7 @@ function StudentDetails() {
   };
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '100vh', fontSize:'14px'}}>
+      <div style={{background:'grey', borderRadius:'10px', padding:'40px', marginTop:'50px', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 54%, rgba(112,112,112,1) 72%, rgba(0,0,0,1) 100%)'}}>
       <h1 style={{color:'white'}}>Student Details</h1>
       <br />
       <br />
@@ -124,6 +125,7 @@ function StudentDetails() {
           style={{borderRadius:'10px', height:'40px', background:'lightGrey', paddingLeft:'5px'}}
         />
         <br />
+        <br />
         <input
           type="text"
           placeholder="Semester Number"
@@ -133,7 +135,7 @@ function StudentDetails() {
         />
         <br />
         <br />
-        <button style={{marginLeft:'55px', background:'lightGrey', borderRadius:'10px', fontSize:'12px', padding:'3px'}} type="submit">Search</button>
+        <button style={{marginLeft:'10px', background:'lightGrey', borderRadius:'10px', fontSize:'12px', padding:'3px', borderColor:'darkgrey'}} type="submit">Search</button>
         {showError && (
           <p style={{ color: "red" }}>Please enter a search term</p>
         )}
@@ -143,6 +145,7 @@ function StudentDetails() {
 
 
       </form>
+      </div>
       {searchResults.map((result) => (
         <div key={result.id} style={{color:'white'}}>
           <br />

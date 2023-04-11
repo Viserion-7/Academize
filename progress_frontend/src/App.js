@@ -5,7 +5,7 @@ import StudentDetails from './components/StudentsDetails';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Login from './components/login';
-import Logout from './components/logout';
+// import Logout from './components/logout';
  
 const App = () => {
   return (
