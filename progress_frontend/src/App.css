@@ -41,7 +41,10 @@
 
 
 .App {
-  background: linear-gradient(90deg, rgba(28,0,10,1) 0%, rgba(63,0,255,1) 16%, rgba(54,4,88,1) 88%, rgba(0,0,0,1) 100%);}
+  background: linear-gradient(90deg, rgba(28,0,10,1) 0%, rgba(63,0,255,1) 16%, rgba(54,4,88,1) 88%, rgba(0,0,0,1) 100%);
+  /* background-color: #d9d0d1; */
+  /* background-color: #ffffff; */
+}
 
 .Auth-form-container {
   display: flex;
@@ -59,6 +62,9 @@
   padding-bottom: 20px;
   border-radius: 30px;
   background: linear-gradient(90deg, rgba(57,0,56,1) 0%, rgba(26,0,85,1) 100%);
+  
+  
+  
   font-size: 20px;
 }
 
