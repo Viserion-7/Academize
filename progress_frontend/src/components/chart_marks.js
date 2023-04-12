@@ -24,15 +24,15 @@ class DynamicChart extends React.Component {
 
     const chartOptions = {
       title: "SGPA Chart",
-      backgroundColor: '#4544a8',
-      legendTextStyle: { color: '#FFF' },
-      titleTextStyle: { color: '#FFF' },
+      backgroundColor: '#FFF',
+      legendTextStyle: { color: '#000000' },
+      titleTextStyle: { color: '#000000' },
       colors: colors,
       hAxis: {
-        textStyle: { color: '#FFF' },
+        textStyle: { color: '#000000' },
       },
       vAxis: {
-        textStyle: { color: '#FFF' },
+        textStyle: { color: '#000000' },
       },
       series: semesters.reduce((obj, semester, index) => {
         obj[index] = { color: colors[index] };

@@ -27,10 +27,7 @@ const Navbar = () => {
                 <div className= {showMediaIcons ? "menu-link mobile-menu-link" : "menu-link" }>
                     <ul>
                         <li>
-                            <Link to="/student" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Student Details</Link>
-                        </li>
-                        <li>
-                            <Link to="/profile" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Profile</Link>
+                            <Link to="/student" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>GPA</Link>
                         </li>
                         <li>
                             <Link to="/marks" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Marks</Link>

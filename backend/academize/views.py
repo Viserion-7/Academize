@@ -72,7 +72,7 @@ def searchMarks(request):
         semester_nums = request.GET.get('sem', '').split(',')
         semesters = Mark.objects.filter(student_name__roll_num=roll_num, semester_num__in=semester_nums).values(
             'id',
-            'semester__semester_num',
+            'semester_num',
             'semester__cgpa',
             'student_name__id',
             'student_name__name',

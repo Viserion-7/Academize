@@ -53,7 +53,8 @@ function Marks() {
     return (
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '100vh', fontSize:'14px'}}>
         <div style={{background:'grey', borderRadius:'10px', padding:'40px', marginTop:'50px', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(35,0,107,1) 36%, rgba(45,0,98,1) 63%, rgba(26,0,85,1) 100%)'}}>
-        <h1 style={{color:'white'}}>Student Details</h1>
+        <h1 style={{color:'white'}}>Marks</h1>
+        <h2 style={{color:'white'}}>Student Details</h2>
         <br />
         <br />
         <form style={{flex:'column', width:'100%'}} onSubmit={handleStudentSearch}>

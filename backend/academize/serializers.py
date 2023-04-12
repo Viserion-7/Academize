@@ -25,9 +25,9 @@ class SubjectSerializer(serializers.ModelSerializer):
 class MarkSerializer(serializers.ModelSerializer):
     student_name = StudentsSerializer(read_only=True)
     subject = SubjectSerializer(read_only=True)
-    semester = SemesterSerializer(read_only=True)
+    # semester = SemesterSerializer(read_only=True)
 
     class Meta:
         model = Mark
-        fields = ['id', 'student_name', 'subject','semester', 'semester_num', 'marks']
+        fields = ['id', 'student_name', 'subject','semester_num', 'marks']
 
