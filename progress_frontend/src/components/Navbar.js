@@ -1,7 +1,5 @@
 import React  from "react";
-import { FaYoutubeSquare } from "react-icons/fa";
 import "./navbar.css";
-// import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBars } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';

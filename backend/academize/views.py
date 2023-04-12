@@ -1,14 +1,28 @@
-from django.shortcuts import render, HttpResponse
 from .models import Semester, Mark, Subject, Students
-from .serializers import StudentsSerializer, SubjectSerializer, SemesterSerializer, MarkSerializer
-from rest_framework import viewsets
+from .serializers import StudentsSerializer, MyTokenObtainPairSerializer, RegisterSerializer, SubjectSerializer, SemesterSerializer, MarkSerializer
 from django.http import JsonResponse
+from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from rest_framework import viewsets
+from rest_framework import status
+from rest_framework import generics
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework import status
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
+
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
+
+
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    permission_classes = (AllowAny,)
+    serializer_class = RegisterSerializer
 
 class StudentsView(viewsets.ModelViewSet):
     queryset = Students.objects.all()

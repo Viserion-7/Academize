@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'academize',
+    'academize',
     'corsheaders',
     'rest_framework',
-    'academize.apps.AcademizeConfig',
+    # 'academize.apps.AcademizeConfig',
     'rest_framework_simplejwt.token_blacklist'
 
 

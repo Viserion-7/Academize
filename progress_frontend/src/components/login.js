@@ -1,12 +1,13 @@
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {useState} from "react";
 import '../App.css';
 
  const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
+    
     const submit = async e => {
         e.preventDefault();
 
@@ -14,7 +15,7 @@ import '../App.css';
             username: username,
             password: password
           };
-
+try{
         const {data} = await axios.post('http://localhost:8000/token/', user ,{headers: {
             'Content-Type': 'application/json'
         }}, {withCredentials: true});
@@ -25,10 +26,10 @@ import '../App.css';
         localStorage.setItem('refresh_token', data.refresh);
         axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
         window.location.href = '/home'
-        
-
+    } catch(error) {
+      setErrorMessage('Incorrect username or password');
     }
-
+  }
     return(
         <div className="Auth-form-container" >
         <form className="Auth-form" onSubmit={submit}>
@@ -61,6 +62,8 @@ import '../App.css';
                 onChange={e => setPassword(e.target.value)}
               />
             </div>
+            <br />
+            {errorMessage && <p style={{color: 'white', fontSize: '15px' }}>{errorMessage}</p>} {/* Render error message if it exists */}          
             <br />
             <div className="d-grid gap-2 mt-3">
               <button style={{cursor:'pointer', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(26,0,85,1) 100%)', borderRadius:'7px', fontSize:'15px', padding:'7px', borderColor:'#23006b', color:'white'}} type="submit" className="btn btn-primary">
