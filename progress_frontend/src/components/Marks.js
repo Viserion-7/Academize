@@ -100,11 +100,11 @@ function Marks() {
           }
           
           {searchResults.map((item, index) => {
-            if (index === 0 || item.semester__semester_num !== searchResults[index - 1].semester__semester_num) {
+            if (index === 0 || item.semester_num !== searchResults[index - 1].semester_num) {
           
               return (
                 <div key={index} style={{color:'white'}}>
-                  <p style={{fontSize:'24px', fontWeight:'600', textAlign:'start'}}>Semester {item.semester__semester_num}</p>
+                  <p style={{fontSize:'24px', fontWeight:'600', textAlign:'start'}}>Semester {item.semester_num}</p>
                   <p style={{fontSize:'18px', fontWeight:'400', textAlign:'start'}}>{item.subject__subject}: {item.marks}</p>
                 </div>
               );
@@ -120,7 +120,7 @@ function Marks() {
         </div>
       }
       {searchResults.length > 0 && 
-      <DynamicChart data={searchResults.map(item => ({ name: `S${item.semester__semester_num}-${item.subject__subject}`, value: item.marks }))} />
+      <DynamicChart data={searchResults.map(item => ({name: `${item.subject__subject}`, value: item.marks, semester: item.semester_num }))} />
       }
       </div>
   
