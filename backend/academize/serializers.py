@@ -29,5 +29,5 @@ class MarkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Mark
-        fields = ['id', 'student_name', 'subject', 'semester', 'semester_num', 'marks']
+        fields = ['id', 'student_name', 'subject','semester', 'semester_num', 'marks']
 

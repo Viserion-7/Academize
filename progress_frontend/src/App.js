@@ -5,6 +5,7 @@ import StudentDetails from './components/StudentsDetails';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Login from './components/login';
+import Marks from './components/Marks';
 // import Logout from './components/logout';
  
 const App = () => {
@@ -31,6 +32,13 @@ const App = () => {
             <StudentDetails />
             </>
             }/>
+            <Route path='/marks' element={
+            <>
+            <Navbar />
+            <Marks />
+            </>
+            }/>
+
             <Route path='/Profile' element={
             <>
             <Navbar />

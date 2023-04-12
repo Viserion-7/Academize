@@ -4,7 +4,6 @@ from .serializers import StudentsSerializer, SubjectSerializer, SemesterSerializ
 from rest_framework import viewsets
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Students
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -27,14 +26,6 @@ class MarksView(viewsets.ModelViewSet):
     queryset = Mark.objects.all()
     serializer_class = MarkSerializer
 
-# class HomeView(APIView):
-#     permission_classes = (IsAuthenticated, )
-  
-#     def get(self, request):
-#         content = {'message': 'Welcome to the JWT Authentification page using React Js and Django!'}
-#         return Response(content)
-
-
 
 class LogoutView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -50,7 +41,7 @@ class LogoutView(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
         
 @csrf_exempt
-def search(request):
+def searchSemester(request):
     if request.method == 'GET':
         roll_num = request.GET.get('rollNum', '')
         semester_nums = request.GET.get('semesterNum', '').split(',')
@@ -72,9 +63,47 @@ def search(request):
         return JsonResponse(data, safe=False)
     else:
         return HttpResponse('Bad Request')
+    
+
+@csrf_exempt
+def searchMarks(request):
+    if request.method == 'GET':
+        roll_num = request.GET.get('roll', '')
+        semester_nums = request.GET.get('sem', '').split(',')
+        semesters = Mark.objects.filter(student_name__roll_num=roll_num, semester_num__in=semester_nums).values(
+            'id',
+            'semester__semester_num',
+            'semester__cgpa',
+            'student_name__id',
+            'student_name__name',
+            'student_name__roll_num',
+            'student_name__username',
+            'student_name__phone_number',
+            'subject__id',
+            'subject__subject',
+            'marks'
+        )
+
+        data = list(semesters)
+        print()
+        print(data)
+        print()
+        return JsonResponse(data, safe=False)
+    else:
+        return HttpResponse('Bad Request')
 
 def home(request):
     return render(request, 'base.html')
+
+
+
+
+
+
+
+
+
+
 
 
 def update_semester(request):

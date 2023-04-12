@@ -21,11 +21,8 @@ const Navbar = () => {
             <nav className="main-nav" style={{height:'90px'}}>
                 <div>
                     <Link to="/home">
-                        <img style={{marginTop:'7px'}} src={logo} alt="ACADEMIZE" className="logo"/>
+                        <img style={{marginTop:'7px'}} src={logo} alt="ACADEMIZE" className="App-logo"/>
                     </Link>
-                    <span>
-                        Hello
-                    </span>
                 </div>
                 <div className= {showMediaIcons ? "menu-link mobile-menu-link" : "menu-link" }>
                     <ul>
@@ -34,6 +31,9 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link to="/profile" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Profile</Link>
+                        </li>
+                        <li>
+                            <Link to="/marks" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Marks</Link>
                         </li>
                         <li>
                             {isAuth ?

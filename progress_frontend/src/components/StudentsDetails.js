@@ -41,7 +41,7 @@ function StudentDetails() {
     }
     try {
       const semesterNums = semesterNum.split(",");
-      const response = await fetch(`http://localhost:8000/api/search/?rollNum=${rollNum}&semesterNum=${semesterNums.join(",")}`);
+      const response = await fetch(`http://localhost:8000/api/searchSem/?rollNum=${rollNum}&semesterNum=${semesterNums.join(",")}`);
       const data = await response.json();
       setSearchResults(data);
       setShowError(false);
