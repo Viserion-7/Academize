@@ -11,7 +11,7 @@ class DynamicChart extends React.Component {
     ];
 
     return (
-      <div style={{background: '#22026b' ,maxWidth:'750px', width:'100%', display: "flex", justifyContent: "center", padding:'3px'}}>
+      <div style={{background:'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)', maxWidth:'750px', width:'100%', display: "flex", justifyContent: "center", padding:'3px'}}>
         <Chart
           width={'100%'}
           height={"500px"}
@@ -20,15 +20,15 @@ class DynamicChart extends React.Component {
           data={chartData}
           options={{
             title: "SGPA Chart",
-            backgroundColor: '#4544a8',
-            legendTextStyle: { color: '#FFF' },
-            titleTextStyle: { color: '#FFF' },
-            colors:['white'],
+            backgroundColor: '#ffffff',
+            legendTextStyle: { color: '#000000' },
+            titleTextStyle: { color: '#000000' },
+            colors:['black'],
             hAxis: {
-              textStyle:{color: '#FFF'},
+              textStyle:{color: '#000000'},
             },
             vAxis: {
-              textStyle:{color: '#FFF'},
+              textStyle:{color: '#000000'},
             }
           }}
           rootProps={{ "data-testid": "1" }}

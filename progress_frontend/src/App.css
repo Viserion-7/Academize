@@ -2,6 +2,40 @@
   text-align: center;
 }
 
+.App {
+  /* background: linear-gradient(90deg, rgba(28,0,10,1) 0%, rgba(63,0,255,1) 16%, rgba(54,4,88,1) 88%, rgba(0,0,0,1) 100%); */
+  /* background-color: #d9d0d1; */
+  background-color: #d2ccbf;
+  background-image: url('./components/assets/wallpaper_full.jpg');
+}
+
+@media (max-width: 998px) {
+  .App {
+    background-image: url('./components/assets/wallpape-medium.jpg');
+  }
+  /* html {
+    background-image: url('./components/assets/wallpape-medium.jpg')
+  } */
+  html {
+    background-color: white;
+  }
+}
+
+@media (max-width: 280px) {
+  .App {
+    background-image: url('./components/assets/wallpaper_small.jpg');
+  }
+  
+}
+
+html {
+  /* background: linear-gradient(90deg, rgba(28,0,10,1) 0%, rgba(63,0,255,1) 16%, rgba(54,4,88,1) 88%, rgba(0,0,0,1) 100%); */
+  /* background-color: #292929; */
+  /* background-color: #d2ccbf; */
+  /* background-image: url('./components/assets/books1.jpeg'); */
+  background-image: url('./components/assets/wallpaper_full.jpg')
+}
+
 .App-logo {
   /* animation: spin 20s alternate-reverse infinite; */
   border-radius: 360px;
@@ -40,11 +74,6 @@
 }
 
 
-.App {
-  background: linear-gradient(90deg, rgba(28,0,10,1) 0%, rgba(63,0,255,1) 16%, rgba(54,4,88,1) 88%, rgba(0,0,0,1) 100%);
-  /* background-color: #d9d0d1; */
-  /* background-color: #ffffff; */
-}
 
 .Auth-form-container {
   display: flex;
@@ -61,10 +90,8 @@
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 30px;
-  background: linear-gradient(90deg, rgba(57,0,56,1) 0%, rgba(26,0,85,1) 100%);
-  
-  
-  
+  /* background: linear-gradient(90deg, rgba(57,0,56,1) 0%, rgba(26,0,85,1) 100%); */
+  background-color: #83563e;  
   font-size: 20px;
 }
 
@@ -97,6 +124,3 @@ label {
   font-size:20px;
 }
 
-html {
-  background: linear-gradient(90deg, rgba(28,0,10,1) 0%, rgba(63,0,255,1) 16%, rgba(54,4,88,1) 88%, rgba(0,0,0,1) 100%);
-}

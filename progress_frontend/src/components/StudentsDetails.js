@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import DynamicChart from "./chart_cgpa";
 import '../App.css';
+import notepad from '../components/assets/notepad_small.jpg';
 
 function StudentDetails() {
   useEffect(() => {
@@ -53,8 +54,8 @@ function StudentDetails() {
 
   };
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '100vh', fontSize:'14px'}}>
-      <div style={{background:'grey', borderRadius:'10px', padding:'40px', marginTop:'50px', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(35,0,107,1) 36%, rgba(45,0,98,1) 63%, rgba(26,0,85,1) 100%)'}}>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '100vh', fontSize:'14px', position:"relative", top:'200px'}}>
+      <div style={{borderRadius:'10px', padding:'40px', marginTop:'50px', background:'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)'}}>
       <h1 style={{color:'white'}}>Semester GPA</h1>
       <h2 style={{color:'white'}}>Student Details</h2>
       <br />
@@ -78,7 +79,7 @@ function StudentDetails() {
         />
         <br />
         <br />
-        <button class="buttons" style={{marginLeft:'10px', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(26,0,85,1) 100%)', borderRadius:'7px', fontSize:'14px', padding:'5px', borderColor:'#23006b', color:'white'}} type="submit">Search</button>
+        <button class="buttons" style={{marginLeft:'10px', background: 'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)', borderRadius:'7px', fontSize:'14px', padding:'5px', borderColor:'white', color:'white'}} type="submit">Search</button>
         {showError && (
           <p style={{ color: "red" }}>Please enter a search term</p>
         )}
@@ -90,9 +91,9 @@ function StudentDetails() {
       </form>
       </div>
       {searchResults.length > 0 &&
-        <div style={{margin:'25px', padding:'30px', borderRadius:'10px', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(35,0,107,1) 36%, rgba(26,0,85,1) 100%)'}}>
+        <div style={{margin:'25px', padding:'30px', borderRadius:'10px', background:'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)'}}>
         {searchResults.length > 0 &&
-        <div style={{color:'white', padding:'1%'}}>
+        <div style={{color:'#ffffff', padding:'1%'}}>
           <p style={{fontSize:'25px', fontWeight:'750', textAlign:'start'}}>{searchResults[0].student__name}</p>
           <br />
           <p style={{fontSize:'15px', fontWeight:'500', textAlign:'start'}}>Roll Number: {searchResults[0].student__roll_num}</p>
@@ -102,7 +103,7 @@ function StudentDetails() {
         </div>
         }
         {searchResults.map((item, index) => (
-        <div key={index} style={{color:'white'}}>
+        <div key={index} style={{color:'#ffffff'}}>
           <p style={{fontSize:'18px', fontWeight:'400', textAlign:'start'}}>SGPA-{item.semester_num}: {item.cgpa}</p>
         </div>
       ))}

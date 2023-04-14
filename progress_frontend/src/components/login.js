@@ -62,17 +62,18 @@ try{
                 onChange={e => setPassword(e.target.value)}
               />
             </div>
-            <br />
-            {errorMessage && <p style={{color: 'white', fontSize: '15px' }}>{errorMessage}</p>} {/* Render error message if it exists */}          
-            <br />
+            
+            {errorMessage && <p style={{color: 'red', fontSize: '15px' }}>{errorMessage}</p>} {/* Render error message if it exists */}          
+            
             <div className="d-grid gap-2 mt-3">
-              <button style={{cursor:'pointer', background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(26,0,85,1) 100%)', borderRadius:'7px', fontSize:'15px', padding:'7px', borderColor:'#23006b', color:'white'}} type="submit" className="btn btn-primary">
+              <br />
+              <button style={{cursor:'pointer', background: 'white', borderRadius:'7px', fontSize:'15px', padding:'7px', color:'black'}} type="submit" className="btn btn-primary">
                 Login
               </button>
             </div>
             
             <Link to='/register' style={{color:'lightblue',fontSize:'15px', textDecoration:'underline'}}>
-            Register
+            Don't Have An Account?
             </Link>
           </div>
         </form>

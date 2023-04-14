@@ -68,7 +68,7 @@ function Marks() {
           padding: "40px",
           marginTop: "50px",
           background:
-            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(35,0,107,1) 36%, rgba(45,0,98,1) 63%, rgba(26,0,85,1) 100%)",
+          'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)',
         }}
       >
         <h1 style={{ color: "white" }}>Marks</h1>
@@ -112,11 +112,10 @@ function Marks() {
             style={{
               marginLeft: "10px",
               background:
-                "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(26,0,85,1) 100%)",
+                "linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)",
               borderRadius: "7px",
               fontSize: "14px",
               padding: "5px",
-              borderColor: "#23006b",
               color: "white",
             }}
             type="submit"
@@ -140,7 +139,7 @@ function Marks() {
             padding: "30px",
             borderRadius: "10px",
             background:
-              "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(35,0,107,1) 36%, rgba(26,0,85,1) 100%)",
+              "linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)",
           }}
         >
           {searchResults.length > 0 && (
