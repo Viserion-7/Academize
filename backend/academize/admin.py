@@ -8,7 +8,8 @@ class MarksInline(admin.TabularInline):
 
 
 class SemesterAdmin(admin.ModelAdmin):
-    inlines = [MarksInline]
+    # inlines = [MarksInline]
+    model = Semester
 
 
 class StudentAdmin(admin.ModelAdmin):
