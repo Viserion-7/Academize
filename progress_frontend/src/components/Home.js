@@ -10,11 +10,12 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  // background-color: #f5f5f5;
+  background-image: url('./components/assets/wallpaper_full.jpg');
 `;
 
 const Title = styled.h1`
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
   color: #555;
 `;
@@ -67,10 +68,6 @@ function Home() {
         <Button to="/marks">Get Marks</Button>
       </span>
       <IconContainer>
-        <Icon>
-          <FontAwesomeIcon icon={faCoffee} />
-          <IconLabel>Coffee</IconLabel>
-        </Icon>
         <Icon>
           <FontAwesomeIcon icon={faGraduationCap} />
           <IconLabel>Education</IconLabel>

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import DynamicChart from "./chart_cgpa";
 import '../App.css';
-import notepad from '../components/assets/notepad_small.jpg';
 
 function StudentDetails() {
   useEffect(() => {

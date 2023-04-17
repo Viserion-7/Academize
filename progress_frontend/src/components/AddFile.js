@@ -38,12 +38,19 @@ function FileUploadSingle() {
   };
 
   return (
-    <div>
-      <input type="file" name="file" accept=".csv, .xlsx, .xls, .ods, .txt" onChange={handleFileChange} />
-
-      <div>{file && `${file.name} - ${file.type}`}</div>
-
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '100vh', fontSize:'14px', position:"relative", top:'200px'}}>
+      <div style={{borderRadius:'10px', padding:'40px', marginTop:'50px', background:'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)'}}>
+      <h1 style={{color:'white'}}>
+        Add Marks
+      </h1>
+      <input style={{padding:'20px', marginLeft:'45px'}} type="file" name="file" accept=".csv, .xlsx, .xls, .ods, .txt" onChange={handleFileChange} />
+      <br />
+      <div style={{color:'white', fontFamily:'sans-serif', font:'poppins'}}>
+        {file && `${file.name} - ${file.type}`}
+      </div>
+      <br />
       <button onClick={handleUploadClick}>Upload</button>
+      </div>
     </div>
   );
 }

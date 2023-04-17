@@ -47,16 +47,23 @@ class UploadSerializer(serializers.ModelSerializer):
             reader = csv.reader(f)
             for row in reader:
                 print(row)
-                # roll_num = row[0]
-                # name = row[1]
-                # semesterNum = row[2]
-                # subject = row[3]
-                # marks = row[4]
-                # obj = Mark(
-                #     semester_num = semesterNum,
-                #     marks = marks,
-                # )
-                # obj.save()
+                roll_num = row[0]
+                semesterNum = row[2]
+                subjectId = row[3]
+                marks = row[4]
+                subject = Subject.objects.get(id=subjectId)
+                print("********************")
+                print(subject)
+                print("********************")
+                student = Students.objects.get(roll_num=roll_num)
+                obj = Mark.objects.create(
+                    student_name = student,
+                    subject = subject,
+                    semester_num = semesterNum,
+                    marks = marks,
+                    semester_id = 5,
+                )
+                obj.save()
         return uploaded_file
 
 
