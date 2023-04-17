@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Login from './components/login';
 import Marks from './components/Marks';
+import AddFile from './components/AddFile';
 import { AuthProvider } from './components/AuthContext';
 import Register from './components/register';
  
@@ -39,6 +40,13 @@ const App = () => {
             <>
             <Navbar />
             <Marks />
+            </>
+            }/>
+
+            <Route path='/add' element={
+            <>
+            <Navbar />
+            <AddFile />
             </>
             }/>
 

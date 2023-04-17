@@ -1,5 +1,5 @@
-from .models import Semester, Mark, Subject, Students
-from .serializers import StudentsSerializer, MyTokenObtainPairSerializer, RegisterSerializer, SubjectSerializer, SemesterSerializer, MarkSerializer
+from .models import Semester, Mark, Subject, Students, FileUpload
+from .serializers import StudentsSerializer, MyTokenObtainPairSerializer, RegisterSerializer, SubjectSerializer, SemesterSerializer, MarkSerializer, UploadSerializer
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -13,7 +13,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
+from .models import FileUpload
 
+import datetime
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
@@ -77,7 +79,6 @@ def searchSemester(request):
         return JsonResponse(data, safe=False)
     else:
         return HttpResponse('Bad Request')
-    
 
 @csrf_exempt
 def searchMarks(request):
@@ -105,6 +106,32 @@ def searchMarks(request):
         return JsonResponse(data, safe=False)
     else:
         return HttpResponse('Bad Request')
+    
+
+class UploadView(viewsets.ModelViewSet):
+    queryset = FileUpload.objects.all()
+    serializer_class = UploadSerializer
+    print("-------------------")
+    print(datetime.datetime.now())
+    print("--------------------")
+    # @csrf_exempt
+    # def upload_file(request):
+    #     if request.method == 'POST':
+    #         file = request.FILES['file']
+    #         print()
+    #         print(request.FILES)
+    #         print(file)
+    #         print()
+    #         if file:
+    #             file_upload = FileUpload()
+    #             file_upload.file = file
+    #             print("--------------------")
+    #             print(file_upload)
+    #             print("--------------------")
+    #             # file_upload.save()
+    #             return JsonResponse({'url':file_upload.file.url})
+    #         return JsonResponse({'error': 'Invalid upload.'})
+    #     return JsonResponse({'error': 'None, Value  error'})
 
 def home(request):
     return render(request, 'base.html')

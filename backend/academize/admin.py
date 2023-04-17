@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Students, Semester, Mark
+from .models import Students, Semester, Mark, FileUpload
 
 
 class MarksInline(admin.TabularInline):
@@ -23,7 +23,10 @@ class StudentAdmin(admin.ModelAdmin):
             student.create_semesters()
     create_semesters.short_description = "Create semesters for selected students"
 
+class FileAdmin(admin.ModelAdmin):
+    model = FileUpload
 
 admin.site.register(Students, StudentAdmin)
 admin.site.register(Semester, SemesterAdmin)
 admin.site.register(Mark)
+admin.site.register(FileUpload, FileAdmin)

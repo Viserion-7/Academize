@@ -23,9 +23,9 @@ from rest_framework_simplejwt import views as jwt_views
 router = routers.DefaultRouter()
 router.register(r'semester',views.SemesterView, 'semester')
 router.register(r'marks', views.MarksView, 'marks')
-router.register(r'marks', views.MarksView, 'marks')
 router.register(r'students', views.StudentsView, 'students')
 router.register(r'subjects', views.SubjectView, 'subjects')
+router.register(r'upload', views.UploadView, 'upload')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

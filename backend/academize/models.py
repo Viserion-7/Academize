@@ -36,3 +36,13 @@ class Mark(models.Model):
     
     def __str__(self):
         return f"{self.subject} - {self.semester_num}: {self.marks}"
+    
+class FileUpload(models.Model):
+    file = models.FileField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.file.name
+    
+
+my_model_instance = FileUpload.objects.all()

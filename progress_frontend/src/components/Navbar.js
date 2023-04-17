@@ -31,6 +31,9 @@ const Navbar = () => {
                             <Link to="/marks" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Marks</Link>
                         </li>
                         <li>
+                            <Link to="/add" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Add Marks</Link>
+                        </li>
+                        <li>
                             {isAuth ?
                             <Link to="/" style={{color:"white"}} >Logout</Link>:
                             <Link to="/login" style={{color:"white"}} >Login</Link>
