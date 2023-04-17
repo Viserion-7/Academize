@@ -35,8 +35,8 @@ const Navbar = () => {
                         </li>
                         <li>
                             {isAuth ?
-                            <Link to="/" style={{color:"white"}} >Logout</Link>:
-                            <Link to="/login" style={{color:"white"}} >Login</Link>
+                            <Link to="/logout" style={{color:"white"}} >Logout</Link>:
+                            <Link to="/" style={{color:"white"}} >Login</Link>
                              }
                         </li>
                     </ul>

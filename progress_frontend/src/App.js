@@ -9,6 +9,7 @@ import Marks from './components/Marks';
 import AddFile from './components/AddFile';
 import { AuthProvider } from './components/AuthContext';
 import Register from './components/register';
+import { Logout } from './components/logout';
  
 const App = () => {
   return (
@@ -19,11 +20,12 @@ const App = () => {
           <Routes>
             <Route exact path='/' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path="/" element={
+            <Route path='/logout' element={<Logout />} />
+            {/* <Route path="/" element={
             <>
             <Login/>
             </>
-            }/>
+            }/> */}
             <Route path='/home' element={
             <>
             <Navbar />

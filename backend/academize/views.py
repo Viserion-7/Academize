@@ -17,8 +17,8 @@ from .models import FileUpload
 
 import datetime
 
-class MyTokenObtainPairView(TokenObtainPairView):
-    serializer_class = MyTokenObtainPairSerializer
+# class MyTokenObtainPairView(TokenObtainPairView):
+#     serializer_class = MyTokenObtainPairSerializer
 
 
 class RegisterView(generics.CreateAPIView):
@@ -44,7 +44,6 @@ class MarksView(viewsets.ModelViewSet):
 
 
 class LogoutView(APIView):
-    permission_classes = (IsAuthenticated,)
     
     def post(self, request):
         try:

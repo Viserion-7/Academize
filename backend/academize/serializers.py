@@ -1,11 +1,9 @@
 from rest_framework import serializers
 from .models import Students, Semester, Subject, Mark, FileUpload
 from rest_framework import serializers
-from .models import Students, Semester, Subject, Mark
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from rest_framework.validators import UniqueValidator
 import os
 import csv
 class StudentsSerializer(serializers.ModelSerializer):
@@ -49,9 +47,16 @@ class UploadSerializer(serializers.ModelSerializer):
             reader = csv.reader(f)
             for row in reader:
                 print(row)
-                
-
-
+                # roll_num = row[0]
+                # name = row[1]
+                # semesterNum = row[2]
+                # subject = row[3]
+                # marks = row[4]
+                # obj = Mark(
+                #     semester_num = semesterNum,
+                #     marks = marks,
+                # )
+                # obj.save()
         return uploaded_file
 
 

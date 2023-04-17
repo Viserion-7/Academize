@@ -1,9 +1,8 @@
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
+export const Logout = () => {
 
-const Logout = () => {
     useEffect(() => {
         (async () => {
             try {
@@ -13,17 +12,19 @@ const Logout = () => {
                     'Content-Type': 'application/json'
                 }}, {withCredentials: true});
 
-                console.log('logout', data);
-                localStorage.clear();
+                console.log('logout exit');
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
                 axios.defaults.headers.common['Authorization'] = null;
-                window.location.href = '/';
+                window.location.href = '/'
             } catch (e) {
-                console.log(e)
+                console.log('logout not working')
             }
         })();
     }, []);
 
-  return <div></div>;
-};
 
-export default Logout;
+    return (
+        <div></div>
+    )
+}
