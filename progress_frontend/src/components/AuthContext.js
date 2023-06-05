@@ -20,9 +20,7 @@ export const AuthProvider = ({ children }) => {
   );
   const [loading, setLoading] = useState(true);
 
-
-
-  const registerUser = async (username, password, password2) => {
+  const registerUser = async (username, password, password2, first_name, last_name, email) => {
     const response = await fetch("http://127.0.0.1:8000/register/", {
       method: "POST",
       headers: {
@@ -31,7 +29,10 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify({
         username,
         password,
-        password2
+        password2,
+        first_name, 
+        last_name,
+        email
       })
     });
     if (response.status === 201) {
