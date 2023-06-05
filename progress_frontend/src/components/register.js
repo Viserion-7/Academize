@@ -5,12 +5,35 @@ function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const { registerUser } = useContext(AuthContext);
 
   const handleSubmit = async e => {
     e.preventDefault();
-    registerUser(username, password, password2);
+  if (password === password2) {
+    registerUser(username, password, password2, first_name, last_name, email);
+    console.log("User registered!")
+  } else {
+    setErrorMessage("Passwords do not match!");
   };
+  }
+  const handlePasswordChange = e => {
+    setPassword(e.target.value);
+    setErrorMessage("");
+  };
+
+  const handlePassword2Change = e => {
+    setPassword2(e.target.value);
+    if (password !== e.target.value) {
+      setErrorMessage("Passwords do not match!");
+    } else {
+      setErrorMessage("");
+    }
+  };    
 
   return (
     <section className="Auth-form-container">
@@ -28,6 +51,51 @@ function Register() {
             placeholder="Username"
             required
           />
+        </div>
+        <br />
+        <div className="form-group mt-3">
+          <label htmlFor="first-name" style={{padding:'10px'}}>First Name</label>
+            <input
+              style={{borderRadius:'10px', padding:'10px', float:'right'}}
+              type="text"
+              id="first-name"
+              className="form-control mt-1"
+              onChange={e => setFirstName(e.target.value)}
+              placeholder="First Name"
+              required
+            />
+        </div>
+        <br />
+        <div className="form-group mt-3">
+          <label htmlFor="last-name" style={{padding:'10px'}}>Last Name</label>
+          <input
+            style={{borderRadius:'10px', padding:'10px', float:'right'}}
+            type="text"
+            id="last-name"
+            className="form-control mt-1"
+            onChange={e => setLastName(e.target.value)}
+            placeholder="Last Name"
+            required
+          />
+        </div>
+        <br />
+        <div className="form-group mt-3">
+          <label htmlFor="email" style={{ padding: "10px" }}>
+          Email
+          </label>
+          <input
+            style={{
+              borderRadius: "10px",
+              padding: "10px",
+              float: "right",
+            }}
+            type="email"
+            id="email"
+            className="form-control mt-1"
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />          
         </div>
         <br />
         <div className="form-group mt-3">
@@ -57,7 +125,7 @@ function Register() {
 
           <div style={{color:'red', fontSize:'15px'}}>
             <br />
-            {password2 !== password ? "Passwords do not match" : ""}
+            {errorMessage}
           </div>
         </div>
         
