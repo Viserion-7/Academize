@@ -3,7 +3,7 @@ import "./navbar.css";
 import { FaBars } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import logo from "./assets/logo.png";
+import logo from "./assets/newerlogo.png";
 
 const Navbar = () => {
     const [showMediaIcons, setShowMediaIcons] = useState(false);
@@ -16,6 +16,7 @@ const Navbar = () => {
     
     return (
         <>
+        <nav className="stickyNav">
             <nav className="main-nav" style={{height:'90px'}}>
                 <div>
                     <Link to="/home">
@@ -25,18 +26,21 @@ const Navbar = () => {
                 <div className= {showMediaIcons ? "menu-link mobile-menu-link" : "menu-link" }>
                     <ul>
                         <li>
-                            <Link to="/student" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>GPA</Link>
+                            <Link to="/student" style={{}} onClick={() => setShowMediaIcons(false)}>GPA</Link>
                         </li>
                         <li>
-                            <Link to="/marks" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Marks</Link>
+                            <Link to="/marks" style={{}} onClick={() => setShowMediaIcons(false)}>Marks</Link>
                         </li>
                         <li>
-                            <Link to="/add" style={{color:"white"}} onClick={() => setShowMediaIcons(false)}>Add Marks</Link>
+                            <Link to="/add" style={{}} onClick={() => setShowMediaIcons(false)}>Add Marks</Link>
+                        </li>
+                        <li>
+                            <Link to="/addStudents" style={{}} onClick={() => setShowMediaIcons(false)}>Students</Link>
                         </li>
                         <li>
                             {isAuth ?
-                            <Link to="/logout" style={{color:"white"}} >Logout</Link>:
-                            <Link to="/" style={{color:"white"}} >Login</Link>
+                            <Link to="/logout" >Logout</Link>:
+                            <Link to="/" style={{}} >Login</Link>
                              }
                         </li>
                     </ul>
@@ -48,6 +52,7 @@ const Navbar = () => {
                         </a>
                     </div>
                 </div>
+            </nav>
             </nav>
         </>
     );

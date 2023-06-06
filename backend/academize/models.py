@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Students(models.Model):
     name = models.CharField(max_length=150)
     roll_num = models.CharField(max_length=150)
@@ -9,6 +8,12 @@ class Students(models.Model):
     def __str__(self):
         return f"{self.name} - {self.roll_num}"
 
+class Teacher(models.Model):
+    username = models.CharField(max_length=150)
+    students = models.ManyToManyField(Students)
+
+    def __str__(self):
+        return self.username
 
 class Semester(models.Model):
     student = models.ForeignKey(Students, on_delete=models.CASCADE)
@@ -38,6 +43,13 @@ class Mark(models.Model):
         return f"{self.subject} - {self.semester_num}: {self.marks}"
     
 class FileUpload(models.Model):
+    file = models.FileField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.file.name
+    
+class StudentUpload(models.Model):
     file = models.FileField(upload_to='uploads/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 

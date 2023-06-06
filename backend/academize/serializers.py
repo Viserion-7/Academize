@@ -1,11 +1,12 @@
 from rest_framework import serializers
-from .models import Students, Semester, Subject, Mark, FileUpload
+from .models import Students, Semester, Subject, Mark, FileUpload, Teacher, StudentUpload
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-import os
+import os, shutil
 import csv
+
 class StudentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Students
@@ -64,14 +65,61 @@ class UploadSerializer(serializers.ModelSerializer):
                     semester_id = 5,
                 )
                 obj.save()
+            try:
+                shutil.rmtree('media/')
+            except:
+                pass
+                
+
         return uploaded_file
 
+class StudentUploadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudentUpload
+        fields = '__all__'
+    def create(self, validated_data, request):
+        print("blabla")
+        uploaded_file = StudentUpload.objects.create(
+            file=validated_data['file']
+        )
+        filePath = os.path.join('media/',str(uploaded_file.file))
+        with open(filePath, 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                print(row)
+                roll_num = row[0]
+                student_name = row[1]
+                phone_num = row[2]
+                obj = Students.objects.create(
+                    name = student_name,
+                    roll_num = roll_num,
+                    username = "student",
+                    phone_number = phone_num,
+                )
+                obj2 = Teacher.objects.get_or_create(username=request.user.username, students=obj)
+                obj.save()
+                
+                
+            try:
+                shutil.rmtree('media/')
+            except:
+                pass
+                
+
+        return uploaded_file
+
+
+class TeacherSerializer(serializers.ModelSerializer):
+    students = StudentsSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Teacher
+        fields = ['id', 'username', 'students']
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         write_only=True, required=True, validators=[validate_password])
     password2 = serializers.CharField(write_only=True, required=True)
-
     class Meta:
         model = User
         fields = ('username', 'password', 'password2')
@@ -90,6 +138,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         user.set_password(validated_data['password'])
         user.save()
+        Teacher.objects.create(username=user.username)
 
         return user
     
