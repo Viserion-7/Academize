@@ -41,7 +41,7 @@ class DynamicChart extends React.Component {
     };
 
     return (
-      <div style={{ background: 'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)', maxWidth: '750px', width: '100%', display: "flex", justifyContent: "center", padding: '3px' }}>
+      <div className="chart">
         <Chart
           width={'100%'}
           height={"500px"}

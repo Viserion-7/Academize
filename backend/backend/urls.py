@@ -26,6 +26,8 @@ router.register(r'marks', views.MarksView, 'marks')
 router.register(r'students', views.StudentsView, 'students')
 router.register(r'subjects', views.SubjectView, 'subjects')
 router.register(r'upload', views.UploadView, 'upload')
+router.register(r'teacher', views.TeacherView, 'teacher')
+router.register(r'uploadstudents', views.UploadStudentsView, 'uploadstudents')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

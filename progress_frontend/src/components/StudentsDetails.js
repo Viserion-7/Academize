@@ -50,68 +50,200 @@ function StudentDetails() {
     } catch (error) {
       console.error(error);
     }
-
   };
+  
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '100vh', fontSize:'14px', position:"relative", top:'200px'}}>
-      <div style={{borderRadius:'10px', padding:'40px', marginTop:'50px', background:'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)'}}>
-      <h1 style={{color:'white'}}>Semester GPA</h1>
-      <h2 style={{color:'white'}}>Student Details</h2>
-      <br />
-      <br />
-      <form style={{flex:'column', width:'100%'}} onSubmit={handleStudentSearch}>
-        <input
-          type="text"
-          placeholder="Roll Number"
-          value={rollNum}
-          onChange={(e) => setRollNum(e.target.value)}
-          style={{borderRadius:'10px', height:'40px', background:'lightGrey', paddingLeft:'5px'}}
-        />
-        <br />
-        <br />
-        <input
-          type="text"
-          placeholder="Semesters (comma-seperated)"
-          value={semesterNum}
-          onChange={(e) => setSemesterNum(e.target.value)}
-          style={{borderRadius:'10px', height:'40px', background:'lightGrey', paddingLeft:'5px'}}
-        />
-        <br />
-        <br />
-        <button class="buttons" style={{marginLeft:'10px', background: 'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)', borderRadius:'7px', fontSize:'14px', padding:'5px', borderColor:'white', color:'white'}} type="submit">Search</button>
-        {showError && (
+    <div style={{display: "flex", flexDirection: "column"}} className="addStudents">
+    <div class="getDetailsForm" style={{display: "flex", justifyContent: "center", marginTop:"50px"}}>
+    <form
+      style={{
+        position: "absolute",
+        width: "350px",
+        // top: "301px",
+        height: "472px",
+      }}
+      onSubmit={handleStudentSearch}
+    >
+      <div
+        style={{
+          position: "absolute",
+          height: "100%",
+          width: "100%",
+          top: "0%",
+          right: "0%",
+          bottom: "0%",
+          left: "0%",
+          borderRadius: "20px",
+          backgroundColor: "#fff",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          height: "11.86%",
+          width: "50.87%",
+          top: "64.83%",
+          left: "12.14%",
+          fontSize: "18px",
+          color: "#000",
+          textAlign: "left",
+          display: "inline-block",
+        }}
+      >
+        Semester Number
+      </div>
+      <b
+        style={{
+          position: "absolute",
+          height: "8.69%",
+          width: "45.38%",
+          top: "7.63%",
+          left: "27.46%",
+          fontSize: "30px",
+          display: "inline-block",
+          color: "#000",
+          textAlign: "left",
+        }}
+        
+      >
+        ACADEMIZE
+      </b>
+      <input
+        style={{
+          border: "none",
+          backgroundColor: "#fff",
+          position: "absolute",
+          height: "9.53%",
+          width: "79.77%",
+          top: "50%",
+          right: "9.25%",
+          bottom: "40.47%",
+          left: "10.98%",
+          borderRadius: "100px",
+          padding: '15px',
+          border: "thin solid grey"
+        }}
+        type="text"
+        placeholder="Roll Number"
+        value={rollNum}
+        onChange={(e) => setRollNum(e.target.value)}
+        
+      />
+      <div
+        style={{
+          position: "absolute",
+          width: "34.1%",
+          top: "43.22%",
+          left: "12.14%",
+          fontSize: "18px",
+          color: "#000",
+          textAlign: "left",
+          display: "inline-block",
+        }}
+      >
+        Roll Number
+      </div>
+      <input
+        style={{
+          border: "none",
+          backgroundColor: "#fff",
+          position: "absolute",
+          height: "9.53%",
+          width: "79.77%",
+          top: "72.03%",
+          right: "9.25%",
+          bottom: "18.43%",
+          left: "10.98%",
+          borderRadius: "100px",
+          padding:"15px",
+          border: "thin solid grey"
+        }}
+        type="text"
+        placeholder="Semesters (comma-seperated)"
+        value={semesterNum}
+        onChange={(e) => setSemesterNum(e.target.value)}
+      />
+      <div
+        style={{
+          position: "absolute",
+          height: "6.78%",
+          width: "30.64%",
+          top: "85.59%",
+          right: "36.99%",
+          bottom: "7.63%",
+          left: "32.37%",
+          // backgroundColor: "#fff",
+        }}
+      />
+      <button
+      class="whitebutton"
+        style={{
+          cursor: "pointer",
+          padding: "0",
+          position: "absolute",
+          height: "40px",
+          width: "100px",
+          top: "85.59%",
+          right: "36.99%",
+          bottom: "7.63%",          
+          borderRadius: "100px",
+          
+        }}
+      >
+        Search
+      </button>
+    {showError && (
           <p style={{ color: "red" }}>Please enter a search term</p>
         )}
         {matchError && (
           <p style={{ color: "red", marginLeft:'30px'}}>No results found!</p>
         )}
-
-
-      </form>
-      </div>
-      {searchResults.length > 0 &&
-        <div style={{margin:'25px', padding:'30px', borderRadius:'10px', background:'linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%)'}}>
-        {searchResults.length > 0 &&
-        <div style={{color:'#ffffff', padding:'1%'}}>
-          <p style={{fontSize:'25px', fontWeight:'750', textAlign:'start'}}>{searchResults[0].student__name}</p>
-          <br />
-          <p style={{fontSize:'15px', fontWeight:'500', textAlign:'start'}}>Roll Number: {searchResults[0].student__roll_num}</p>
-          <br />
-          <p style={{fontSize:'15px', fontWeight:'500', textAlign:'start'}}>Phone: {searchResults[0].student__phone_number}</p>
-          <br />
-        </div>
-        }
-        {searchResults.map((item, index) => (
-        <div key={index} style={{color:'#ffffff'}}>
-          <p style={{fontSize:'18px', fontWeight:'400', textAlign:'start'}}>SGPA-{item.semester_num}: {item.cgpa}</p>
-        </div>
-      ))}
-      </div>
-    } 
-    {searchResults.length > 0 &&
-    <DynamicChart data={searchResults.map(item => ({ name: `SGPA-${item.semester_num}`, value: item.cgpa }))} />
-    }
+      
+      <b
+        style={{
+          position: "absolute",
+          top: "22.25%",
+          left: "13.43%",
+          fontSize: "25px",
+          color: "#000",
+          textAlign: "left",
+      }}
+      >
+        Semester Performance
+      </b>
+    </form>
     </div>
+
+    <div class="dataChart" style={{marginTop: "30%", display: "flex", justifyContent: "center", }}>
+
+    {searchResults.length > 0 &&
+      <div className="dataDisplay">
+      {searchResults.length > 0 &&
+      <div style={{padding:'1%'}}>
+        <p style={{fontSize:'25px', fontWeight:'750', textAlign:'start'}}>{searchResults[0].student__name}</p>
+        <br />
+        <p style={{fontSize:'15px', fontWeight:'500', textAlign:'start'}}>Roll Number: {searchResults[0].student__roll_num}</p>
+        <br />
+        <p style={{fontSize:'15px', fontWeight:'500', textAlign:'start'}}>Phone: {searchResults[0].student__phone_number}</p>
+        <br />
+      </div>
+      }
+      {searchResults.map((item, index) => (
+      <div key={index}>
+        <p style={{fontSize:'18px', fontWeight:'400', textAlign:'start'}}>SGPA-{item.semester_num}: {item.cgpa}</p>
+      </div>
+    ))}
+      </div>
+  } 
+  {
+    <div style={{opacity: "0"}}>................</div>
+  }
+  {searchResults.length > 0 &&
+  <DynamicChart chartType="LineChart" data={searchResults.map(item => ({ name: `SGPA-${item.semester_num}`, value: item.cgpa }))} />
+  }
+  </div>
+  </div>
+
 
   );
 }

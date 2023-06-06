@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
 
-
-/* :root {
-  --primary : #41b2a2;
-  --secondary : #ffffff;
-} */
-
 * {
   margin: 0;
   padding: 0;
@@ -35,22 +29,23 @@ body {
 /* navbar style start  */
 
 .main-nav {
-  width: 100%;
   height: 10rem;
   display: grid;
   grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
-  /* background: linear-gradient(90deg, rgba(61,25,6,1) 0%, rgba(78,54,48,1) 69%, rgba(76,45,32,1) 93%); */
-  /* background-color: rgb(0, 0, 0); */
-  /* background-color: #1d1411; */
-  background: linear-gradient(90deg, rgba(24,9,1,1) 0%, rgba(27,5,0,1) 69%, rgba(60,35,25,1) 93%);
+  background-color: #FFFFFF;
   height: 85px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+}
+.stickyNav {
+  top: 0;
+  position: sticky;
+  z-index: 100;
 }
 
 .logo {
   display: grid;
-  /* background-color: #3b5998; */
   grid-column: 2/3;
   justify-content: start;
   align-items: center;
@@ -186,7 +181,7 @@ body {
   .main-nav {
     height: 7rem;
     grid-template-columns: 2rem 2fr 3fr 2rem 2rem;
-    background-color: rgb(10, 0, 0);
+    background-color: rgb(0, 0, 0);
   }
 
   .menu-link {
@@ -201,13 +196,13 @@ body {
   .mobile-menu-link {
     grid-column: 2/4;
     position: relative;
-    z-index: 99;
+    z-index: 100;
   }
 
   .mobile-menu-link {
     /* background: linear-gradient(90deg, rgba(57,0,56,1) 0%, rgba(26,0,85,1) 100%); */
     /* background-color: rgb(10, 0, 0); */
-    background: linear-gradient(90deg, rgba(24,9,1,1) 0%, rgba(27,5,0,1) 69%, rgba(60,35,25,1) 93%);
+    background: #000;
     border-radius: 20px;
     height: 20rem;
     display: grid;
@@ -285,6 +280,7 @@ body {
 @media (max-width: 520px) {
   .main-nav {
     height: 6rem;
+    /* width: 154.5%; */
     grid-template-columns: 1rem 4fr 1fr 1fr 1rem;
   }
 

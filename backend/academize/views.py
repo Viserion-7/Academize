@@ -1,5 +1,5 @@
-from .models import Semester, Mark, Subject, Students, FileUpload
-from .serializers import StudentsSerializer, MyTokenObtainPairSerializer, RegisterSerializer, SubjectSerializer, SemesterSerializer, MarkSerializer, UploadSerializer
+from .models import Semester, Mark, Subject, Students, FileUpload, Teacher, StudentUpload
+from .serializers import StudentsSerializer, MyTokenObtainPairSerializer, RegisterSerializer, SubjectSerializer, SemesterSerializer, MarkSerializer, UploadSerializer, TeacherSerializer, StudentUploadSerializer
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -42,6 +42,9 @@ class MarksView(viewsets.ModelViewSet):
     queryset = Mark.objects.all()
     serializer_class = MarkSerializer
 
+class TeacherView(viewsets.ModelViewSet):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherSerializer
 
 class LogoutView(APIView):
     
@@ -105,7 +108,13 @@ def searchMarks(request):
         return JsonResponse(data, safe=False)
     else:
         return HttpResponse('Bad Request')
-    
+
+class UploadStudentsView(viewsets.ModelViewSet):
+    queryset = StudentUpload.objects.all()
+    serializer_class = StudentUploadSerializer
+    print("-------------------")
+    print(datetime.datetime.now())
+    print("--------------------")    
 
 class UploadView(viewsets.ModelViewSet):
     queryset = FileUpload.objects.all()
@@ -113,38 +122,9 @@ class UploadView(viewsets.ModelViewSet):
     print("-------------------")
     print(datetime.datetime.now())
     print("--------------------")
-    # @csrf_exempt
-    # def upload_file(request):
-    #     if request.method == 'POST':
-    #         file = request.FILES['file']
-    #         print()
-    #         print(request.FILES)
-    #         print(file)
-    #         print()
-    #         if file:
-    #             file_upload = FileUpload()
-    #             file_upload.file = file
-    #             print("--------------------")
-    #             print(file_upload)
-    #             print("--------------------")
-    #             # file_upload.save()
-    #             return JsonResponse({'url':file_upload.file.url})
-    #         return JsonResponse({'error': 'Invalid upload.'})
-    #     return JsonResponse({'error': 'None, Value  error'})
 
 def home(request):
     return render(request, 'base.html')
-
-
-
-
-
-
-
-
-
-
-
 
 def update_semester(request):
     if request.user.username =='shrisharanyan':

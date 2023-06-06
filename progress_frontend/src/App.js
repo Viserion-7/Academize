@@ -10,7 +10,7 @@ import AddFile from './components/AddFile';
 import { AuthProvider } from './components/AuthContext';
 import Register from './components/register';
 import { Logout } from './components/logout';
- 
+import AddStudents from './components/AddStudents';
 const App = () => {
   return (
     <>
@@ -52,12 +52,19 @@ const App = () => {
             </>
             }/>
 
-            <Route path='/Profile' element={
+            <Route path='/addStudents' element={
+            <>
+            <Navbar />
+            <AddStudents />
+            </>
+            }/>
+
+            {/* <Route path='/Profile' element={
             <>
             <Navbar />
             <Profile/>
             </>
-            }/>
+            }/> */}
           </Routes>
           </AuthProvider>
         </Router>

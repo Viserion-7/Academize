@@ -2,6 +2,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import {useState} from "react";
 import '../App.css';
+import Navbar from "./Navbar";
 
  const Login = () => {
     const [username, setUsername] = useState('');
@@ -31,7 +32,9 @@ try{
     }
   }
     return(
+      <div className="login">
         <div className="Auth-form-container" >
+        <div className="Auth-box">
         <form className="Auth-form" onSubmit={submit}>
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
@@ -77,6 +80,8 @@ try{
             </Link>
           </div>
         </form>
+    </div>
+    </div>
     </div>
     )
   }
