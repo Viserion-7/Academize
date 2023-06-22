@@ -6,6 +6,7 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 import os, shutil
 import csv
+from academize.utils import return_username
 
 class StudentsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -73,12 +74,33 @@ class UploadSerializer(serializers.ModelSerializer):
 
         return uploaded_file
 
+
+def save_value_to_file(value):
+        file = open('backend/academize/files/persistent_value.txt', 'w')
+        file.write(str(value))
+        file.close()
+            
+def read_value_from_file():
+    with open('backend/academize/files/persistent_value.txt', 'r') as file:
+        value = file.read()
+        return int(value)
+
+
 class StudentUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudentUpload
         fields = '__all__'
-    def create(self, validated_data, request):
-        print("blabla")
+
+    
+    def create(self, validated_data):
+        current_username = return_username()
+        
+        print("********************")
+        print(current_username)
+        # save_value_to_file(current_username)
+        # value = read_value_from_file()
+        print("********************")
+        teacher = Teacher.objects.get(username=current_username)
         uploaded_file = StudentUpload.objects.create(
             file=validated_data['file']
         )
@@ -90,16 +112,16 @@ class StudentUploadSerializer(serializers.ModelSerializer):
                 roll_num = row[0]
                 student_name = row[1]
                 phone_num = row[2]
-                obj = Students.objects.create(
-                    name = student_name,
-                    roll_num = roll_num,
-                    username = "student",
-                    phone_number = phone_num,
-                )
-                obj2 = Teacher.objects.get_or_create(username=request.user.username, students=obj)
-                obj.save()
-                
-                
+                try:
+                    obj = Students.objects.get(roll_num=roll_num)
+                except:
+                    obj = Students.objects.create(
+                        name = student_name,
+                        roll_num = roll_num,
+                        username = roll_num,
+                        phone_number = phone_num,
+                    )
+                teacher.students.add(obj)
             try:
                 shutil.rmtree('media/')
             except:
@@ -120,9 +142,12 @@ class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         write_only=True, required=True, validators=[validate_password])
     password2 = serializers.CharField(write_only=True, required=True)
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
+    email = serializers.EmailField(required=True)
     class Meta:
         model = User
-        fields = ('username', 'password', 'password2')
+        fields = ('username', 'password', 'password2','first_name', 'last_name', 'email')
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
@@ -132,8 +157,17 @@ class RegisterSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
+        username = validated_data['username']
+        password = validated_data['password']
+        first_name = validated_data['first_name']
+        last_name = validated_data['last_name']
+        email = validated_data['email']
         user = User.objects.create(
-            username=validated_data['username']
+            username=username,
+            password=password,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
         )
 
         user.set_password(validated_data['password'])

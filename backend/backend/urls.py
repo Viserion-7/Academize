@@ -19,6 +19,7 @@ from academize import views
 from academize.views import update_semester, home, searchSemester, searchMarks
 from rest_framework import routers
 from rest_framework_simplejwt import views as jwt_views
+from academize.utils import username_view
 
 router = routers.DefaultRouter()
 router.register(r'semester',views.SemesterView, 'semester')
@@ -39,4 +40,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/searchSem/', searchSemester, name='searchSem'),
     path('api/searchMark/', searchMarks, name='searchMark'),
+    path('api/username', username_view, name='username')
 ]

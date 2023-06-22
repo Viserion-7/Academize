@@ -6,6 +6,16 @@ function AddStudents() {
       window.location.href = "/";
     }
   }, []);
+
+
+  useEffect( ()=> {
+    const response = fetch('http://localhost:8000/api/teacher/')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    
+  },[]);
+
+
   const [file, setFile] = useState();
 
   const handleFileChange = (e) => {
@@ -41,6 +51,8 @@ function AddStudents() {
       .then((data) => console.log(data))
       .catch((err) => console.error(err));
   };
+
+
 
   return (
     <div className='addStudents'>
