@@ -27,7 +27,7 @@ const Navbar = () => {
         <nav className="stickyNav">
             <nav className="main-nav" style={{height:'90px'}}>
                 <div>
-                    <Link to="/home">
+                    <Link to="/">
                         <img style={{marginTop:'7px'}} src={logo} alt="ACADEMIZE" className="App-logo"/>
                     </Link>
                 </div>
@@ -35,7 +35,7 @@ const Navbar = () => {
                     <ul>
                         <li>
                             <div className="navlinks">
-                                <a href="/home#analyze" style={{}} onClick={() => handleAnalyzeClick}>Analyze</a>
+                                <a href="/#analyze" style={{color: "black"}} onClick={() => handleAnalyzeClick}>Analyze</a>
                             </div>
                         </li>
                         {/* <li>
@@ -45,20 +45,14 @@ const Navbar = () => {
                         </li> */}
                         <li>
                             <div className="navlinks">
-                            <Link to="/add" style={{}} onClick={() => setShowMediaIcons(false)}>Upload Marks</Link>
+                            <Link to="/add" style={{color: "black"}}  onClick={() => setShowMediaIcons(false)}>Upload Marks</Link>
                             </div>
                         </li>
                         <li>
                             <div className="navlinks">
-                            <Link to="/addStudents" style={{}} onClick={() => setShowMediaIcons(false)}>Students</Link>
+                            <Link to="/addStudents" style={{color: "black"}}  onClick={() => setShowMediaIcons(false)}>Students</Link>
                             </div>
                         </li>
-                        {/* <li style={{grid: "3/4"}}>
-                            {isAuth ?
-                            <Link to="/logout" style={{}}>Logout</Link>:
-                            <Link to="/" style={{}} >Login</Link>
-                             }
-                        </li> */}
                     </ul>
                 </div>
                 <div style={{fontSize: "18px", alignItems: "center", display: "flex", justifyContent: "end"}}>

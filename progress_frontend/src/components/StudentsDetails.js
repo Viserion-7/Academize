@@ -224,13 +224,13 @@ function StudentDetails() {
             style={{
               position: "absolute",
               top: "22.25%",
-              left: "13.43%",
+              left: "30%",
               fontSize: "25px",
               color: "#000",
               textAlign: "left",
             }}
           >
-            Semester Performance
+            Analyze GPA
           </b>
         </form>
       </div>

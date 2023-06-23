@@ -13,18 +13,18 @@ const Container = styled.div`
 
 const Title = styled.h1`
   margin-top: 10rem;
-  font-size: 8.5rem;
+  font-size: 9.5rem;
   // position: absolute;
   // bottom: 60%;
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
   color: #000;
   z-index: 50;
 `;
 
 const Button = styled(Link)`
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border: 1px solid #2e2e2e;
   border-radius: 10rem;
   font-size: 2rem;
@@ -35,9 +35,9 @@ const Button = styled(Link)`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
   }
 `;
 
@@ -45,16 +45,24 @@ function Home() {
   return (
     <Container>
       {/* <div className='overlay'></div> */}
-      <Title>Welcome to AcademiZe</Title>
       <div
         style={{
-          fontSize: "20px",
-          fontWeight: "300",
           display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           justifyContent: "center",
         }}
       >
-        where you can track your students progress easily and efficiently.
+        <Title>Welcome to AcademiZe</Title>
+        <div
+          style={{
+            fontSize: "25px",
+            fontWeight: "300",
+            marginLeft: "20%",
+          }}
+        >
+          where you can track your students' progress easily and efficiently.
+        </div>
       </div>
       <div
         style={{
@@ -65,7 +73,15 @@ function Home() {
           maxWidth: "70%",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            // backgroundColor: "white",
+            // padding: "50px",
+            // borderRadius: "30px",
+          }}
+        >
           <div style={{ maxWidth: "50%" }}>
             <p
               style={{
@@ -78,6 +94,13 @@ function Home() {
             </p>
             <p
               style={{ marginTop: "50px", fontSize: "25px", fontWeight: "350" }}
+            >
+              This website aims to help the teachers and all the other
+              instructional faculty with managing their students' performance
+              and enrich their teaching experience.
+            </p>
+            <p
+              style={{ marginTop: "20px", fontSize: "25px", fontWeight: "350" }}
             >
               This website is enabled with magnificent features for managing
               your students and their grades, all with simple steps!
@@ -98,7 +121,15 @@ function Home() {
           maxWidth: "70%",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            backgroundColor: "white",
+            padding: "50px",
+            borderRadius: "30px",
+          }}
+        >
           <div style={{ maxWidth: "50%" }}>
             <p
               style={{
@@ -126,14 +157,22 @@ function Home() {
       </div>
       <div
         style={{
-          marginTop: "200px",
+          marginTop: "100px",
           marginLeft: "auto",
           marginRight: "auto",
           justifyContent: "center",
           maxWidth: "70%",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            backgroundColor: "white",
+            padding: "50px",
+            borderRadius: "30px",
+          }}
+        >
           <div style={{ maxWidth: "50%" }}>
             <p
               style={{
@@ -147,7 +186,7 @@ function Home() {
             <p
               style={{ marginTop: "50px", fontSize: "25px", fontWeight: "350" }}
             >
-              Once again! All it takes is a file to upload all your students'
+              Once again, all it takes, is ONE file to upload all your students'
               marks!
             </p>
           </div>
@@ -157,14 +196,22 @@ function Home() {
       <div
         id="analyze"
         style={{
-          marginTop: "200px",
+          marginTop: "100px",
           marginLeft: "auto",
           marginRight: "auto",
           justifyContent: "center",
           maxWidth: "70%",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            backgroundColor: "white",
+            padding: "50px",
+            borderRadius: "30px",
+          }}
+        >
           <div style={{ maxWidth: "50%" }}>
             <p
               style={{

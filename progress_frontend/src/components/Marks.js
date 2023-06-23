@@ -204,13 +204,13 @@ function Marks() {
         style={{
           position: "absolute",
           top: "22.25%",
-          left: "12.43%",
+          left: "24%",
           fontSize: "28px",
           color: "#000",
           textAlign: "left",
       }}
       >
-        Subject Performance
+        Analyze Marks
       </b>
     </form>
     </div>
