@@ -5,7 +5,7 @@ import "../App.css";
 import GetUsername from "../services/GetUsername";
 
 const Login = () => {
-  if(localStorage.getItem('access_token') !== null){
+  if(localStorage.getItem('access_token')){
     window.location.href= '/home'
   }
   const [username, setUsername] = useState("");
@@ -47,6 +47,9 @@ const Login = () => {
   return (
     <div className="login">
       <div className="Auth-form-container">
+        <div style={{fontSize: "50px", fontWeight: "900", fontFamily: ""}}>
+          Welcome to AcademiZe
+        </div>
         <div className="Auth-box">
           <form className="Auth-form" onSubmit={submit}>
             <div className="Auth-form-content">
@@ -54,7 +57,7 @@ const Login = () => {
               <div className="form-group mt-3">
                 <label style={{ padding: "10px" }}>Username</label>
                 <input
-                  style={{ borderRadius: "10px", padding: "10px" }}
+                  style={{ borderRadius: "100px", padding: "15px", height: "50px", width: "100%", border: "1px solid black", outline: "none", fontSize: "15px"}}
                   className="form-control mt-1"
                   placeholder="Enter Username"
                   name="username"
@@ -68,7 +71,7 @@ const Login = () => {
               <div className="form-group mt-3">
                 <label style={{ padding: "10px" }}>Password</label>
                 <input
-                  style={{ borderRadius: "10px", padding: "10px" }}
+                  style={{ borderRadius: "100px", padding: "15px", height: "50px", width: "100%", border: "1px solid black", outline: "none", fontSize: "15px"}}
                   name="password"
                   type="password"
                   className="form-control mt-1"
@@ -85,16 +88,8 @@ const Login = () => {
               <div className="d-grid gap-2 mt-3">
                 <br />
                 <button
-                  style={{
-                    cursor: "pointer",
-                    background: "white",
-                    borderRadius: "7px",
-                    fontSize: "15px",
-                    padding: "7px",
-                    color: "black",
-                  }}
+                className="Auth-button"
                   type="submit"
-                  className="btn btn-primary"
                 >
                   Login
                 </button>
@@ -102,9 +97,10 @@ const Login = () => {
               <Link
                 to="/register"
                 style={{
-                  color: "lightblue",
+                  color: "black",
                   fontSize: "15px",
                   textDecoration: "underline",
+                  marginTop: "10px",
                 }}
               >
                 Don't Have An Account?

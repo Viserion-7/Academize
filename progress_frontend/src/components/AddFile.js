@@ -115,12 +115,12 @@ function FileUploadSingle() {
                 font: "poppins",
                 fontSize: "15px",
                 cursor: "pointer",
-                marginTop: "30%",
+                marginTop: "20%",
               }}
               accept=".csv, .xlsx, .xls, .ods, .txt"
               onChange={handleFileChange}
             />
-            <div style={{ marginTop: "30%" }}>
+            <div style={{ marginTop: "20%" }}>
               <button onClick={handleUploadClick} className="whitebutton">
                 Upload
               </button>

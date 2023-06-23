@@ -107,7 +107,7 @@ function AddStudents() {
                 font: "poppins",
                 fontSize: "15px",
                 cursor: "pointer",
-                marginTop: "30%",
+                marginTop: "20%",
               }}
               accept=".csv, .xlsx, .xls, .ods, .txt"
               onChange={handleFileChange}

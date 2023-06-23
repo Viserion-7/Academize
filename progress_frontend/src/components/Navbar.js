@@ -8,8 +8,8 @@ import logo from "./assets/newerlogo.png";
 
 const Navbar = () => {
 
-    const handleAnalyzeClick = (event) => {
-        event.preventDefault();
+    const handleAnalyzeClick = () => {
+        // event.preventDefault();
         const analyzeSection = document.getElementById('analyze');
         analyzeSection.scrollIntoView({ behavior: 'smooth' });
       };

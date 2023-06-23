@@ -1,6 +1,7 @@
 .login {
-    background-image: url('./components/assets/back1.png');
-    background-size: cover;
+  /* background-image: url('./components/assets/back1.png'); */
+  background-color: #eeeeee;
+  background-size: cover;
 }
 
 /* html {
@@ -13,32 +14,49 @@
   height: 100%;
 }
 
-
 input::file-selector-button {
-  font-weight: bold;
+  font-weight: 600;
   color: rgb(255, 255, 255);
-  padding: 0.5em;
-  border: thin solid grey;
+  padding: 1rem;
+  border: 1px solid grey;
   border-radius: 100px;
-  background-color: #A7BED3;
+  background-color: #000000de;
+  cursor: pointer;
+}
+
+input::file-selector-button:hover {
+  font-weight: bold;
+  color: black;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 100px;
+  background-color: white;
   cursor: pointer;
 }
 
 .chooseFile {
-  display: inline-block;
+  height: 70px;
   border: 1px solid #ccc;
   border-radius: 100px;
   cursor: pointer;
+  width: 100%;
 }
 
 .whitebutton {
-  height: 40px; width: 150px; font-size: 18px; border-radius: 100px; cursor: pointer; background-color: #ffffff;
+  border: 1px solid black;
+  height: 40px;
+  width: 150px;
+  font-size: 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 .whitebutton:hover {
-  background-color: #A7BED3;
+  background-color: #000000de;
   color: white;
-  border: none;
+  border: 1px solid black;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -46,19 +64,18 @@ body {
   margin: 0;
   padding: 0;
   /* background-image: url('./components/assets/Resized1.png'); */
-  /* background-color: #e7e7e7; */
+  background-color: #e7e7e7;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
-.overlay{
+.overlay {
   height: 100%;
   width: 100%;
   /* background-color: black; */
   opacity: 0.5;
   z-index: 22;
-
 }
 /* .buttIcons {
   position: absolute;
@@ -67,23 +84,21 @@ body {
 } */
 
 .chart {
-  background:#162440;
-  max-width:750px;
-  width:100%;
-  padding:3px;
+  background: #162440;
+  max-width: 750px;
+  width: 100%;
+  padding: 3px;
   z-index: 0;
   /* position: absolute; */
 }
 
-
-.dataDisplay { 
-  padding:30px;
-  border-radius:10px;
-  background:#FFFFFF;
-  opacity:0.9;
-  max-width:400px;
+.dataDisplay {
+  padding: 30px;
+  border-radius: 10px;
+  background: #ffffff;
+  opacity: 0.9;
+  max-width: 400px;
   color: black;
-
 }
 
 .upload {
@@ -91,22 +106,21 @@ body {
   margin-top: 10%;
 }
 
-
-@media (min-width: 998px) and (max-width:1400px) {
+@media (min-width: 998px) and (max-width: 1400px) {
   /* .App {
     background-image: url('./components/assets/Resized1.png');
     background-repeat: no-repeat;
   } */
   .login {
-    background-image: url('./components/assets/back1_middle.png');
+    background-image: url("./components/assets/back1_middle.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   .upload {
     position: absolute;
-    left:60%;
-    top:30%;
+    left: 60%;
+    top: 30%;
   }
 
   .chart {
@@ -119,21 +133,18 @@ body {
     background-color: #ffffff;
     max-width: 400px;
     /* max-height: 500px; */
-    margin-top:20%;
+    margin-top: 20%;
     border-radius: 10px;
     padding: 30px;
     margin-bottom: 10%;
   }
 }
 
-
-
 @media (max-width: 690px) {
   .dataChart {
     flex-direction: column;
     margin-top: 50%;
   }
-
 
   .getDetailsForm {
     /* max-width: 200px; */
@@ -144,12 +155,11 @@ body {
     /* height: 205px; */
     /* margin-top: 50%; */
   }
-  
+
   .dataDisplay {
     /* margin-top: 50% */
   }
 }
-
 
 .App-logo {
   /* animation: spin 20s alternate-reverse infinite; */
@@ -172,7 +182,12 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(70,70,70,1) 69%, rgba(107,108,108,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(70, 70, 70, 1) 69%,
+    rgba(107, 108, 108, 1) 100%
+  );
 }
 
 .App-link {
@@ -188,51 +203,85 @@ body {
   }
 }
 
-
-
 .Auth-form-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
-  position: relative;
+  /* position: relative; */
 }
 
 .Auth-box {
-  position: absolute;
-  right: 10%;
+  /* position: absolute;
+  right: 10%; */
+}
+
+.Auth-button {
+  cursor: pointer;
+  background: white;
+  border-radius: 100px;
+  width: 150px;
+  height: 45px;
+  padding: 7px;
+  color: black;
+  border: 1px solid black;
+  font-size: 16px;
+}
+
+.Auth-button:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 
 .Auth-form {
-  width: 275px;
-  /* height: 400px; */
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 500px;
+  /* height: 350px; */
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 30px;
   /* background: linear-gradient(90deg, rgba(57,0,56,1) 0%, rgba(26,0,85,1) 100%); */
-  background-color: #162440;  
+  background-color: #ffffff;
   font-size: 20px;
 }
 
 .Auth-form-content {
-  padding-left: 12%;
-  padding-right: 12%;    
+  /* padding-left: 12%;
+  padding-right: 12%;     */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Auth-form-title {
   text-align: center;
   margin-bottom: 1em;
-  font-size: 24px;
-  color: rgb(255, 255, 255);
+  font-size: 30px;
+  color: rgb(0, 0, 0);
   font-weight: 800;
 }
 
+input {
+  border-radius: 100px;
+  padding: 15px;
+  height: 50px;
+  width: 450px;
+  border: 1px solid black;
+  outline: none;
+  font-size: 15px;
+}
+
 label {
+  display: flex;
+  margin-left: 2rem;
   font-size: 14px;
   font-weight: 600;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .buttons {
@@ -240,11 +289,10 @@ label {
   transition: 100ms;
 }
 
-.buttons:hover{
+.buttons:hover {
   border-color: black;
-  font-size:20px;
+  font-size: 20px;
 }
-
 
 .gpa {
   /* background: url('./components/assets/DetailsBG.png'); */
