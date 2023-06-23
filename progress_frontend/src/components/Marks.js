@@ -179,6 +179,20 @@ function Marks() {
       >
         Search
       </button>
+      <a
+            href="/student"
+            style={{
+              position: "absolute",
+              top: "93%",
+              right: "0",
+              marginRight: "10px",
+              bottom: "5%",
+              fontSize: "15px",
+              color: "black",
+            }}
+          >
+            View GPA <span style={{ fontSize: "20px" }}>&#8594;</span>
+          </a>
     {showError && (
           <p style={{ color: "red" }}>Please enter a search term</p>
         )}
