@@ -7,7 +7,7 @@ import "../App.css";
 function StudentDetails() {
   useEffect(() => {
     if (localStorage.getItem("access_token") === null) {
-      window.location.href = "/";
+      window.location.href = "/login";
     } else {
       (async () => {
         try {

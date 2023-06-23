@@ -5,7 +5,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { useState, useEffect } from "react";
 import { Link, Navigate } from 'react-router-dom';
 import logo from "./assets/newerlogo.png";
-
+import { IoIosLogIn } from 'react-icons/io';
 const Navbar = () => {
 
     const handleAnalyzeClick = () => {
@@ -64,7 +64,7 @@ const Navbar = () => {
                 <div style={{fontSize: "18px", alignItems: "center", display: "flex", justifyContent: "end"}}>
                 {isAuth ?
                     <Link to="/logout" className="logout"><IoIosLogOut/></Link>:
-                    <Link to="/" style={{}} >Login</Link>
+                    <Link to="/login" className="logout" ><IoIosLogIn/></Link>
                 }
                 </div>
                 <div className="social-media">

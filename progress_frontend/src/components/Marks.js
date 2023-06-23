@@ -5,7 +5,7 @@ import DynamicChart from "./chart_marks";
 function Marks() {
   useEffect(() => {
     if (localStorage.getItem("access_token") === null) {
-      window.location.href = "/";
+      window.location.href = "/login";
     }
   }, []);
 

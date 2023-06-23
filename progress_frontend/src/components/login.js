@@ -5,9 +5,9 @@ import "../App.css";
 import GetUsername from "../services/GetUsername";
 
 const Login = () => {
-  if(localStorage.getItem('access_token')){
-    window.location.href= '/home'
-  }
+  // if(localStorage.getItem('access_token')){
+  //   window.location.href= '/home'
+  // }
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -39,7 +39,7 @@ const Login = () => {
         "Authorization"
       ] = `Bearer ${data["access"]}`;
       GetUsername({ username });
-      window.location.href = "/home";
+      window.location.href = "/";
     } catch (error) {
       setErrorMessage("Incorrect username or password");
     }

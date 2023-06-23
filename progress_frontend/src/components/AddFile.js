@@ -3,7 +3,7 @@ import { ChangeEvent, useState, useEffect } from "react";
 function FileUploadSingle() {
   useEffect(() => {
     if (localStorage.getItem("access_token") === null) {
-      window.location.href = "/";
+      window.location.href = "/login";
     }
   }, []);
   const [file, setFile] = useState();
