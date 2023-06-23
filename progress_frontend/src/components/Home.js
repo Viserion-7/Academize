@@ -42,6 +42,26 @@ const Button = styled(Link)`
   }
 `;
 
+
+const BlackButton = styled(Link)`
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #2e2e2e;
+  border-radius: 10rem;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  // margin-top: 2rem;
+  max-height: 5rem;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+  }
+`;
+
 function Home() {
   return (
     <Container>
@@ -231,9 +251,9 @@ function Home() {
             </p>
           </div>
           <div style={{ display: "flex" }}>
-            <Button to="/student" style={{ marginRight: "2rem" }}>
+            <BlackButton to="/student" style={{ marginRight: "2rem" }}>
               Get GPA
-            </Button>
+            </BlackButton>
             <Button to="/marks">Get Marks</Button>
           </div>
         </div>

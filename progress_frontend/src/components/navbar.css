@@ -119,6 +119,7 @@ body {
 .navlinks {
   padding: 20px;
   color: black;
+  box-shadow: #00000017 0px 1px 0px;
 }
 
 .navlinks:hover{
@@ -126,7 +127,7 @@ body {
   /* height: 5rem; */
   /* width: 8rem; */
   color: white;
-  border-radius: 20px;
+  border-radius: 100px;
   background-color: rgba(136, 136, 136, 0.13);
 }
 
