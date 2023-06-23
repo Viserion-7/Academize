@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import  ThreeColumnLayout from "./Footer.js";
 
 const Container = styled.div`
   // display: flex;
@@ -237,8 +238,10 @@ function Home() {
           </div>
         </div>
       </div>
-      <div style={{ minHeight: "500px" }} />
+      <div style={{ minHeight: "200px" }} />
+      <ThreeColumnLayout />
     </Container>
+    
   );
 }
 
