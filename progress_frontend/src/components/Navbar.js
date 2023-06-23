@@ -26,20 +26,28 @@ const Navbar = () => {
                 <div className= {showMediaIcons ? "menu-link mobile-menu-link" : "menu-link" }>
                     <ul>
                         <li>
-                            <Link to="/student" style={{}} onClick={() => setShowMediaIcons(false)}>GPA</Link>
+                            <div className="navlinks">
+                                <Link to="/student" style={{}} onClick={() => setShowMediaIcons(false)}>GPA</Link>
+                            </div>
                         </li>
                         <li>
+                            <div className="navlinks">
                             <Link to="/marks" style={{}} onClick={() => setShowMediaIcons(false)}>Marks</Link>
+                            </div>
                         </li>
                         <li>
+                            <div className="navlinks">
                             <Link to="/add" style={{}} onClick={() => setShowMediaIcons(false)}>Add Marks</Link>
+                            </div>
                         </li>
                         <li>
+                            <div className="navlinks">
                             <Link to="/addStudents" style={{}} onClick={() => setShowMediaIcons(false)}>Students</Link>
+                            </div>
                         </li>
                         <li>
                             {isAuth ?
-                            <Link to="/logout" >Logout</Link>:
+                            <Link to="/logout" style={{}}>Logout</Link>:
                             <Link to="/" style={{}} >Login</Link>
                              }
                         </li>
