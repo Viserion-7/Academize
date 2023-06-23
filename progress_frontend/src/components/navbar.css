@@ -35,8 +35,8 @@ body {
   /* background-color: #000000; */
   z-index: 100;
   height: 85px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
   /* color: white; */
 }
 .stickyNav {
@@ -57,6 +57,15 @@ body {
 
 .menu-link {
   grid-column: 3/4;
+}
+
+.logout {
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.671);
+}
+
+.logout:hover {
+  color: #000;
 }
 
 
@@ -121,7 +130,7 @@ body {
   /* width: 8rem; */
   color: white;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.089);
+  background-color: rgba(136, 136, 136, 0.13);
 }
 
 .menu-link ul li a {

@@ -5,6 +5,9 @@ import "../App.css";
 import GetUsername from "../services/GetUsername";
 
 const Login = () => {
+  if(localStorage.getItem('access_token') !== null){
+    window.location.href= '/home'
+  }
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
