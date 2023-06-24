@@ -18,21 +18,23 @@ const App = () => {
         <Router>
           <AuthProvider>
           <Routes>
-            <Route path='/login' element={<Login />} />
+            <Route exact path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/logout' element={<Logout />} />
-            <Route exact path='/' element={
+            <Route path='/' element={
             <>
             <Navbar />
             <Home />
             </>
             }/>
+
             <Route path='/student' element={
             <>
             <Navbar />
             <StudentDetails />
             </>
             }/>
+
             <Route path='/marks' element={
             <>
             <Navbar />
@@ -54,12 +56,6 @@ const App = () => {
             </>
             }/>
 
-            {/* <Route path='/Profile' element={
-            <>
-            <Navbar />
-            <Profile/>
-            </>
-            }/> */}
           </Routes>
           </AuthProvider>
         </Router>

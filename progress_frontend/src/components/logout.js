@@ -6,6 +6,8 @@ export const Logout = () => {
     useEffect(() => {
         (async () => {
             try {
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
                 const {data} = await axios.post('http://localhost:8000/logout/',{
                     refresh_token:localStorage.getItem('refresh_token')
                 } ,{headers: {
@@ -16,9 +18,10 @@ export const Logout = () => {
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('refresh_token');
                 axios.defaults.headers.common['Authorization'] = null;
-                window.location.href = '/'
+                window.location.href = '/login'
             } catch (e) {
                 console.log('logout not working')
+                console.log(e);
             }
         })();
     }, []);
