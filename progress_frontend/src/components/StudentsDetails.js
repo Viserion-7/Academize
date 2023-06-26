@@ -29,6 +29,7 @@ function StudentDetails() {
   const [searchResults, setSearchResults] = useState([]);
   const [showError, setShowError] = useState(false);
   const [matchError, setMatchError] = useState(false);
+  const [chartType, setChartType] = useState("LineChart");
   // const [showAddStudent, setShowAddStudent] = useState(false);
 
   const handleStudentSearch = async (e) => {
@@ -54,6 +55,10 @@ function StudentDetails() {
     }
   };
 
+  const handleChartTypeChange = async (e) => {
+    setChartType(e.target.value);
+  };
+
   return (
     <div
       style={{ display: "flex", flexDirection: "column" }}
@@ -68,7 +73,7 @@ function StudentDetails() {
             position: "absolute",
             width: "350px",
             // top: "301px",
-            height: "472px",
+            height: "500px",
           }}
           onSubmit={handleStudentSearch}
         >
@@ -90,7 +95,7 @@ function StudentDetails() {
               position: "absolute",
               height: "11.86%",
               width: "50.87%",
-              top: "64.83%",
+              top: "53.83%",
               left: "12.14%",
               fontSize: "18px",
               color: "#000",
@@ -122,7 +127,7 @@ function StudentDetails() {
               position: "absolute",
               height: "9.53%",
               width: "79.77%",
-              top: "50%",
+              top: "40%",
               right: "9.25%",
               bottom: "40.47%",
               left: "10.98%",
@@ -139,7 +144,7 @@ function StudentDetails() {
             style={{
               position: "absolute",
               width: "34.1%",
-              top: "43.22%",
+              top: "34.22%",
               left: "12.14%",
               fontSize: "18px",
               color: "#000",
@@ -156,7 +161,7 @@ function StudentDetails() {
               position: "absolute",
               height: "9.53%",
               width: "79.77%",
-              top: "72.03%",
+              top: "60.03%",
               right: "9.25%",
               bottom: "18.43%",
               left: "10.98%",
@@ -189,7 +194,7 @@ function StudentDetails() {
               position: "absolute",
               height: "40px",
               width: "100px",
-              top: "85.59%",
+              top: "90.59%",
               right: "36.99%",
               bottom: "7.63%",
               borderRadius: "100px",
@@ -232,6 +237,29 @@ function StudentDetails() {
           >
             Analyze GPA
           </b>
+          <div
+            style={{
+              position: "absolute",
+              height: "40px",
+              width: "200px",
+              top: "72.59%",
+              right: "36.99%",
+              bottom: "7.63%",
+              left: "12.14%",
+            }}
+          >
+            <label style={{fontSize: "18px", fontWeight: "400"}} for="chartType">
+              Select a Chart Type
+            </label>
+            <select style={{width: "138%", borderRadius: "100px", padding: "10px", backgroundColor: "white", color: "grey", outline: "none", fontSize: "14px", fontWeight: "400"}} id="chartType" name="chartType" onChange={handleChartTypeChange}>
+              <option value="LineChart">Line Chart</option>
+              <option value="BarChart">Bar Chart</option>
+              <option value="PieChart">Pie Chart</option>
+              <option value="ScatterChart">Scatter Chart</option>
+              <option value="AreaChart">Area Chart</option>
+              <option value="BubbleChart">Bubble Chart</option>
+            </select>
+          </div>
         </form>
       </div>
 
@@ -293,7 +321,7 @@ function StudentDetails() {
         {<div style={{ opacity: "0" }}>................</div>}
         {searchResults.length > 0 && (
           <DynamicChart
-            chartType="LineChart"
+            chartType={chartType}
             data={searchResults.map((item) => ({
               name: `SGPA-${item.semester_num}`,
               value: item.cgpa,

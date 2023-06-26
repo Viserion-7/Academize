@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import  ThreeColumnLayout from "./Footer.js";
+import ThreeColumnLayout from "./Footer.js";
 
 const Container = styled.div`
   // display: flex;
@@ -41,7 +41,6 @@ const Button = styled(Link)`
     border: 1px solid #fff;
   }
 `;
-
 
 const BlackButton = styled(Link)`
   background-color: #000;
@@ -107,7 +106,7 @@ function Home() {
             <p
               style={{
                 fontSize: "30px",
-                fontWeight: "500",
+                fontWeight: "600",
                 justifyContent: "left",
               }}
             >
@@ -155,7 +154,7 @@ function Home() {
             <p
               style={{
                 fontSize: "30px",
-                fontWeight: "500",
+                fontWeight: "600",
                 justifyContent: "left",
               }}
             >
@@ -198,7 +197,7 @@ function Home() {
             <p
               style={{
                 fontSize: "30px",
-                fontWeight: "500",
+                fontWeight: "600",
                 justifyContent: "left",
               }}
             >
@@ -237,7 +236,7 @@ function Home() {
             <p
               style={{
                 fontSize: "30px",
-                fontWeight: "500",
+                fontWeight: "600",
                 justifyContent: "left",
               }}
             >
@@ -261,7 +260,6 @@ function Home() {
       <div style={{ minHeight: "200px" }} />
       <ThreeColumnLayout />
     </Container>
-    
   );
 }
 

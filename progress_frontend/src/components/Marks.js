@@ -14,6 +14,7 @@ function Marks() {
   const [searchResults, setSearchResults] = useState([]);
   const [showError, setShowError] = useState(false);
   const [matchError, setMatchError] = useState(false);
+  const [chartType, setChartType] = useState("LineChart");
   // const [showAddStudent, setShowAddStudent] = useState(false);
 
   const handleStudentSearch = async (e) => {
@@ -37,6 +38,10 @@ function Marks() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleChartTypeChange = async (e) => {
+    setChartType(e.target.value);
   };
   return (
 
@@ -69,7 +74,7 @@ function Marks() {
           position: "absolute",
           height: "11.86%",
           width: "50.87%",
-          top: "64.83%",
+          top: "53.83%",
           left: "12.14%",
           fontSize: "18px",
           color: "#000",
@@ -102,7 +107,7 @@ function Marks() {
           position: "absolute",
           height: "9.53%",
           width: "79.77%",
-          top: "50%",
+          top: "42%",
           right: "9.25%",
           bottom: "40.47%",
           left: "10.98%",
@@ -120,7 +125,7 @@ function Marks() {
         style={{
           position: "absolute",
           width: "34.1%",
-          top: "43.22%",
+          top: "35.22%",
           left: "12.14%",
           fontSize: "18px",
           color: "#000",
@@ -137,7 +142,7 @@ function Marks() {
           position: "absolute",
           height: "9.53%",
           width: "79.77%",
-          top: "72.03%",
+          top: "60.03%",
           right: "9.25%",
           bottom: "18.43%",
           left: "10.98%",
@@ -170,7 +175,7 @@ function Marks() {
           position: "absolute",
           height: "40px",
           width: "100px",
-          top: "85.59%",
+          top: "90.59%",
           right: "36.99%",
           bottom: "7.63%",          
           borderRadius: "100px",
@@ -212,6 +217,29 @@ function Marks() {
       >
         Analyze Marks
       </b>
+      <div
+            style={{
+              position: "absolute",
+              height: "40px",
+              width: "200px",
+              top: "72.59%",
+              right: "36.99%",
+              bottom: "7.63%",
+              left: "12.14%",
+            }}
+          >
+            <label style={{fontSize: "18px", fontWeight: "400"}} for="chartType">
+              Select a Chart Type
+            </label>
+            <select style={{width: "138%", borderRadius: "100px", padding: "10px", backgroundColor: "white", color: "grey", outline: "none", fontSize: "14px", fontWeight: "400"}} id="chartType" name="chartType" onChange={handleChartTypeChange}>
+              <option value="LineChart">Line Chart</option>
+              <option value="BarChart">Bar Chart</option>
+              <option value="PieChart">Pie Chart</option>
+              <option value="ScatterChart">Scatter Chart</option>
+              <option value="AreaChart">Area Chart</option>
+              <option value="BubbleChart">Bubble Chart</option>
+            </select>
+          </div>
     </form>
     </div>
         <div style={{marginTop: "30%", display: "flex", justifyContent: "center", }}>
@@ -304,6 +332,7 @@ function Marks() {
         }
         {searchResults.length > 0 && (
           <DynamicChart
+            chartType={chartType}
             data={searchResults.map((item) => ({
               name: `${item.subject__subject}`,
               value: item.marks,

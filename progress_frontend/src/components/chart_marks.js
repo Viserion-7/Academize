@@ -4,7 +4,7 @@ import Chart from "react-google-charts";
 class DynamicChart extends React.Component {
   render() {
     const { data } = this.props;
-
+    const { chartType } = this.props;
     const subjects = [...new Set(data.map(item => item.name))];
     const semesters = Array.from(Array(12).keys()).map(i => `Semester ${i+1}`); 
 
@@ -45,7 +45,7 @@ class DynamicChart extends React.Component {
         <Chart
           width={'100%'}
           height={"500px"}
-          chartType="BarChart"
+          chartType={chartType}
           loader={<div style={{ color: 'white' }}>Loading Chart</div>}
           data={chartData}
           options={chartOptions}
