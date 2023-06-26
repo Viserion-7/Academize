@@ -257,7 +257,7 @@ function StudentDetails() {
               <option value="PieChart">Pie Chart</option>
               <option value="ScatterChart">Scatter Chart</option>
               <option value="AreaChart">Area Chart</option>
-              <option value="BubbleChart">Bubble Chart</option>
+              {/* <option value="BubbleChart">Bubble Chart</option> */}
             </select>
           </div>
         </form>
