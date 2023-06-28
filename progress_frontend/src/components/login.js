@@ -39,6 +39,7 @@ const Login = () => {
         "Authorization"
       ] = `Bearer ${data["access"]}`;
       GetUsername({ username });
+      
       window.location.href = "/";
     } catch (error) {
       setErrorMessage("Incorrect username or password");

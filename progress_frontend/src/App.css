@@ -14,6 +14,11 @@
   height: 100%;
 }
 
+.studentSelect option {
+  color: black;
+}
+
+
 input::file-selector-button {
   font-weight: 600;
   color: rgb(255, 255, 255);

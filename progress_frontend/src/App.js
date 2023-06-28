@@ -1,9 +1,8 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import StudentDetails from './components/StudentsDetails';
+import GPA from './components/GPA';
 import Home from './components/Home';
-import Profile from './components/Profile';
 import Login from './components/login';
 import Marks from './components/Marks';
 import AddFile from './components/AddFile';
@@ -31,7 +30,7 @@ const App = () => {
             <Route path='/student' element={
             <>
             <Navbar />
-            <StudentDetails />
+            <GPA />
             </>
             }/>
 

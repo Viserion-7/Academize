@@ -8,6 +8,32 @@ function AddStudents() {
   }, []);
 
 
+  const [studentList, setStudentList] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:8000/api/teacher/`);
+        console.log("SelectStudent");
+        const data = await response.json();
+        data.map((teacher) => {
+          if (teacher["username"] === "teacher1") {
+            console.log(teacher["students"]);
+            setStudentList(teacher["students"]);
+            const res = fetch(`http://localhost:8000/api/semester/`);
+            
+          }
+        });
+      } catch (error) {
+        console.log("SelectStudentError");
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   useEffect( ()=> {
     const response = fetch('http://localhost:8000/api/teacher/')
     .then(response => response.json())
@@ -58,8 +84,17 @@ function AddStudents() {
     <div className='addStudents'>
       <div style={{display: "flex", flexDirection: "column", justifyContent:"center", alignItems: "center"}}>
         <section>
-          <div style={{overflowY: "auto", backgroundColor:"#FFFFFF", height: "400px", width:"80vw", marginTop: "150px", display: "flex", flexDirection: "column", alignItems: "center", borderRadius: "20px", color: "000"}}>
+          <div style={{overflowY: "auto", backgroundColor:"#FFFFFF", minWidth:"40vw", minHeight: "20vh", marginTop: "150px", display: "flex", flexDirection: "column", alignItems: "center", borderRadius: "20px", color: "000"}}>
             <h1 style={{marginTop: "10px", fontSize:"20px"}}>My Class</h1>
+            {
+              studentList &&
+              studentList.map((student) => (
+                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center", width: "80%", padding: "10px", borderRadius: "10px", backgroundColor: "#F5F5F5", marginTop: "10px"}}>
+                  <p style={{fontSize: "15px"}}>{student["name"]}</p>
+                  <p style={{fontSize: "15px"}}>{student["roll_num"]}</p>
+                </div>
+              ))
+            }
           </div>
         </section>
         <section className='upload'>

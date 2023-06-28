@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import DynamicChart from "./chart_cgpa";
 import "../App.css";
+import SelectStudent from "./Select.js";
 
-function StudentDetails() {
+function GPA() {
   useEffect(() => {
     if (localStorage.getItem("access_token") === null) {
       window.location.href = "/login";
@@ -30,7 +31,10 @@ function StudentDetails() {
   const [showError, setShowError] = useState(false);
   const [matchError, setMatchError] = useState(false);
   const [chartType, setChartType] = useState("LineChart");
-  // const [showAddStudent, setShowAddStudent] = useState(false);
+  
+  const handleStudentSelect = (selectedOption) => {
+    setRollNum(selectedOption);
+  };
 
   const handleStudentSearch = async (e) => {
     e.preventDefault();
@@ -65,7 +69,7 @@ function StudentDetails() {
       className="addStudents"
     >
       <div
-        class="getDetailsForm"
+        className="getDetailsForm"
         style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}
       >
         <form
@@ -120,7 +124,7 @@ function StudentDetails() {
           >
             ACADEMIZE
           </b>
-          <input
+          {/* <input
             style={{
               border: "none",
               backgroundColor: "#fff",
@@ -139,7 +143,22 @@ function StudentDetails() {
             placeholder="Roll Number"
             value={rollNum}
             onChange={(e) => setRollNum(e.target.value)}
-          />
+          /> */}
+          <div
+            style={{
+              backgroundColor: "#fff",
+              position: "absolute",
+              height: "9.53%",
+              width: "79.77%",
+              top: "40%",
+              right: "9.25%",
+              bottom: "40.47%",
+              left: "10.98%",
+              borderRadius: "100px",
+            }}
+          >
+            <SelectStudent onValueChange={handleStudentSelect}/>
+          </div>
           <div
             style={{
               position: "absolute",
@@ -187,7 +206,7 @@ function StudentDetails() {
             }}
           />
           <button
-            class="whitebutton"
+            className="whitebutton"
             style={{
               cursor: "pointer",
               padding: "0",
@@ -217,7 +236,16 @@ function StudentDetails() {
             View Marks <span style={{ fontSize: "20px" }}>&#8594;</span>
           </a>
           {showError && (
-            <p style={{ color: "red" }}>Please enter a search term</p>
+            <p
+              style={{
+                color: "red",
+                position: "absolute",
+                top: "87.5%",
+                left: "35%",
+              }}
+            >
+              Please enter a search term
+            </p>
           )}
           {matchError && (
             <p style={{ color: "red", marginLeft: "30px" }}>
@@ -248,23 +276,39 @@ function StudentDetails() {
               left: "12.14%",
             }}
           >
-            <label style={{fontSize: "18px", fontWeight: "400"}} for="chartType">
+            <label
+              style={{ fontSize: "18px", fontWeight: "400" }}
+              htmlFor="chartType"
+            >
               Select a Chart Type
             </label>
-            <select style={{width: "138%", borderRadius: "100px", padding: "10px", backgroundColor: "white", color: "grey", outline: "none", fontSize: "14px", fontWeight: "400"}} id="chartType" name="chartType" onChange={handleChartTypeChange}>
+            <select
+              style={{
+                width: "138%",
+                borderRadius: "100px",
+                padding: "10px",
+                backgroundColor: "white",
+                color: "grey",
+                outline: "none",
+                fontSize: "14px",
+                fontWeight: "400",
+              }}
+              id="chartType"
+              name="chartType"
+              onChange={handleChartTypeChange}
+            >
               <option value="LineChart">Line Chart</option>
               <option value="BarChart">Bar Chart</option>
               <option value="PieChart">Pie Chart</option>
               <option value="ScatterChart">Scatter Chart</option>
               <option value="AreaChart">Area Chart</option>
-              {/* <option value="BubbleChart">Bubble Chart</option> */}
             </select>
           </div>
         </form>
       </div>
 
       <div
-        class="dataChart"
+        className="dataChart"
         style={{ marginTop: "30%", display: "flex", justifyContent: "center" }}
       >
         {searchResults.length > 0 && (
@@ -333,4 +377,4 @@ function StudentDetails() {
   );
 }
 
-export default StudentDetails;
+export default GPA;
